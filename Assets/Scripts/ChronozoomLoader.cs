@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 namespace GalaxyExplorer
 {
@@ -46,7 +47,17 @@ namespace GalaxyExplorer
         void DisplayData(Timeline timeline)
         {
             //GameObject textGameObject = Instantiate(text);
-            Debug.Log(timeline);
+            int zPosition = 3;
+            foreach(Exhibit exhibits in timeline.exhibits)
+            {
+                //Debug.Log(exhibits.title + " " + exhibits.time);
+                GameObject textGameObject = Instantiate(text);
+                textGameObject.transform.position = new Vector3(textGameObject.transform.position.x, textGameObject.transform.position.y, zPosition);
+
+                textGameObject.GetComponent<TextMesh>().text = exhibits.title + " " + exhibits.time;
+
+                zPosition += 1;
+            }
         }
 
     }
