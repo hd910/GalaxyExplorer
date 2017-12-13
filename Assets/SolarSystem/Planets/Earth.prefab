@@ -5,10 +5,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 407848}
-  - 114: {fileID: 11491514}
+  - component: {fileID: 407848}
+  - component: {fileID: 11491514}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -21,14 +21,15 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 487860}
-  - 114: {fileID: 11436780}
-  - 114: {fileID: 11401148}
-  - 205: {fileID: 20524686}
-  - 114: {fileID: 11416672}
-  - 114: {fileID: 11479060}
+  - component: {fileID: 487860}
+  - component: {fileID: 11436780}
+  - component: {fileID: 11401148}
+  - component: {fileID: 20524686}
+  - component: {fileID: 11416672}
+  - component: {fileID: 11479060}
+  - component: {fileID: 114665335853319380}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -41,12 +42,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 486120}
-  - 33: {fileID: 3384934}
-  - 23: {fileID: 2312642}
-  - 114: {fileID: 11454944}
+  - component: {fileID: 486120}
+  - component: {fileID: 3384934}
+  - component: {fileID: 2312642}
+  - component: {fileID: 11454944}
   m_Layer: 0
   m_Name: EarthClouds
   m_TagString: Untagged
@@ -59,12 +60,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 435966}
-  - 33: {fileID: 3390220}
-  - 23: {fileID: 2339340}
-  - 114: {fileID: 11404702}
+  - component: {fileID: 435966}
+  - component: {fileID: 3390220}
+  - component: {fileID: 2339340}
+  - component: {fileID: 11404702}
   m_Layer: 0
   m_Name: earth_LOD1
   m_TagString: Untagged
@@ -77,10 +78,10 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 470648}
-  - 114: {fileID: 11420602}
+  - component: {fileID: 470648}
+  - component: {fileID: 11420602}
   m_Layer: 0
   m_Name: OrbitPicker
   m_TagString: Untagged
@@ -93,13 +94,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 422678}
-  - 33: {fileID: 3336022}
-  - 23: {fileID: 2355626}
-  - 114: {fileID: 11448008}
-  - 114: {fileID: 11497698}
+  - component: {fileID: 422678}
+  - component: {fileID: 3336022}
+  - component: {fileID: 2355626}
+  - component: {fileID: 11448008}
+  - component: {fileID: 11497698}
   m_Layer: 0
   m_Name: EarthGlow
   m_TagString: Untagged
@@ -112,13 +113,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 472652}
-  - 33: {fileID: 3385892}
-  - 23: {fileID: 2385442}
-  - 114: {fileID: 11470882}
-  - 135: {fileID: 13527174}
+  - component: {fileID: 472652}
+  - component: {fileID: 3385892}
+  - component: {fileID: 2385442}
+  - component: {fileID: 11470882}
+  - component: {fileID: 13527174}
   m_Layer: 14
   m_Name: Earth
   m_TagString: Untagged
@@ -139,6 +140,7 @@ Transform:
   - {fileID: 470648}
   m_Father: {fileID: 487860}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &422678
 Transform:
   m_ObjectHideFlags: 1
@@ -151,6 +153,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 487860}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &435966
 Transform:
   m_ObjectHideFlags: 1
@@ -163,6 +166,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 487860}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &470648
 Transform:
   m_ObjectHideFlags: 1
@@ -175,6 +179,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 407848}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &472652
 Transform:
   m_ObjectHideFlags: 1
@@ -187,6 +192,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 487860}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &486120
 Transform:
   m_ObjectHideFlags: 1
@@ -199,6 +205,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 487860}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &487860
 Transform:
   m_ObjectHideFlags: 1
@@ -216,6 +223,7 @@ Transform:
   - {fileID: 407848}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2312642
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -225,22 +233,30 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 5047f03324fb63f44a80955992ae6a5b, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2339340
 MeshRenderer:
@@ -251,22 +267,30 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 57e730348f814834da829a8c024fde3f, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2355626
 MeshRenderer:
@@ -277,22 +301,30 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 27c975e1daab9884082610341ad67b54, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2385442
 MeshRenderer:
@@ -303,22 +335,30 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: dabafaa1eadd86c4b84f335ce2c7c1ec, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3336022
 MeshFilter:
@@ -551,3 +591,15 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143246}
   m_IsPrefabParent: 1
+--- !u!114 &114665335853319380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6b0249a99f1314fb6910e069fabd64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1182532613493554, guid: c20920dcb0955234fb9ad792bc7df833, type: 2}
