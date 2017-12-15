@@ -11,6 +11,7 @@ namespace GalaxyExplorer
     public class ChronozoomLoader : MonoBehaviour
     {
         public GameObject text;
+        public GameObject detailsCanvas;
 
         private const string ChronozoomURI = "http://www.chronozoom.com/api/gettimelines?supercollection=chronozoom";
 
