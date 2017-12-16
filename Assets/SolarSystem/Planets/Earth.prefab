@@ -603,3 +603,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1182532613493554, guid: c20920dcb0955234fb9ad792bc7df833, type: 2}
+  detailsCanvas: {fileID: 1678914771214396, guid: da895c6a3f1068a46be551e46c80297e,
+    type: 2}

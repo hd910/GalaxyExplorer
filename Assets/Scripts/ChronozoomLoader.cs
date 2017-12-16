@@ -17,7 +17,9 @@ namespace GalaxyExplorer
 
         void Awake()
         {
-            StartCoroutine(GetChronozoomData());
+            //TODO: Need to change loader to better position. Right now called from Earth prefab to demonstrate it working
+            if (GameObject.Find("ChronozoomDetails(Clone)") == null)
+                StartCoroutine(GetChronozoomData());
         }
 
         IEnumerator GetChronozoomData()
@@ -48,17 +50,29 @@ namespace GalaxyExplorer
         void DisplayData(Timeline timeline)
         {
             //GameObject textGameObject = Instantiate(text);
-            int zPosition = 3;
-            foreach(Exhibit exhibits in timeline.exhibits)
-            {
-                //Debug.Log(exhibits.title + " " + exhibits.time);
-                GameObject textGameObject = Instantiate(text);
-                textGameObject.transform.position = new Vector3(textGameObject.transform.position.x, textGameObject.transform.position.y, zPosition);
+            //int zPosition = 3;
+            //foreach(Exhibit exhibits in timeline.exhibits)
+            //{
+            //    //Debug.Log(exhibits.title + " " + exhibits.time);
+            //    GameObject textGameObject = Instantiate(text);
+            //    textGameObject.transform.position = new Vector3(textGameObject.transform.position.x, textGameObject.transform.position.y, zPosition);
 
-                textGameObject.GetComponent<TextMesh>().text = exhibits.title + " " + exhibits.time;
+            //    textGameObject.GetComponent<TextMesh>().text = exhibits.title + " " + exhibits.time;
 
-                zPosition += 1;
-            }
+            //    zPosition += 1;
+            //}
+            //Instantiate the main canvas for displaying information
+            GameObject detailsCanvasGameObject = Instantiate(detailsCanvas);
+
+            //Finds the heading text inside the canvas and change the title with chronozoom data
+            GameObject headingText = detailsCanvasGameObject.transform.Find("BackgroundWhite/HeadingText").gameObject;
+            headingText.GetComponent<Text>().text = timeline.exhibits[0].title;
+
+            //Finds the content text inside the canvas and change the content with chronozoom data
+            GameObject contentText= detailsCanvasGameObject.transform.Find("BackgroundWhite/ContentText").gameObject;
+            contentText.GetComponent<Text>().text = timeline.exhibits[0].contentItems[0].description;
+
+
         }
 
     }
