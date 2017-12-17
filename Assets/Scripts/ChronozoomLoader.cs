@@ -72,7 +72,22 @@ namespace GalaxyExplorer
             GameObject contentText= detailsCanvasGameObject.transform.Find("BackgroundWhite/ContentText").gameObject;
             contentText.GetComponent<Text>().text = timeline.exhibits[0].contentItems[0].description;
 
+            //Finds the magic window gameobject to display the image
+            GameObject magicWindow = detailsCanvasGameObject.transform.Find("ChronozoomMagicWindow").gameObject;
+            String imageURL = timeline.exhibits[0].contentItems[0].uri;
 
+            StartCoroutine(LoadImageOntoMagicWindow(magicWindow, imageURL));
+        }
+
+        IEnumerator LoadImageOntoMagicWindow(GameObject magicWindow, String imageURL)
+        {
+            Texture2D tex;
+            tex = new Texture2D(4, 4, TextureFormat.DXT1, false);
+            WWW www = new WWW(imageURL);
+            yield return www;
+            www.LoadImageIntoTexture(tex);
+            magicWindow.GetComponent<MeshRenderer>().materials[0].mainTexture = tex;
+            //GetComponent<Renderer>().material.mainTexture = tex;
         }
 
     }
