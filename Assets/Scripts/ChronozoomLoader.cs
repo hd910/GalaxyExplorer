@@ -49,18 +49,6 @@ namespace GalaxyExplorer
 
         void DisplayData(Timeline timeline)
         {
-            //GameObject textGameObject = Instantiate(text);
-            //int zPosition = 3;
-            //foreach(Exhibit exhibits in timeline.exhibits)
-            //{
-            //    //Debug.Log(exhibits.title + " " + exhibits.time);
-            //    GameObject textGameObject = Instantiate(text);
-            //    textGameObject.transform.position = new Vector3(textGameObject.transform.position.x, textGameObject.transform.position.y, zPosition);
-
-            //    textGameObject.GetComponent<TextMesh>().text = exhibits.title + " " + exhibits.time;
-
-            //    zPosition += 1;
-            //}
             //Instantiate the main canvas for displaying information
             GameObject detailsCanvasGameObject = Instantiate(detailsCanvas);
 
@@ -75,7 +63,6 @@ namespace GalaxyExplorer
             //Finds the magic window gameobject to display the image
             GameObject magicWindow = detailsCanvasGameObject.transform.Find("ChronozoomMagicWindow").gameObject;
             String imageURL = timeline.exhibits[0].contentItems[0].uri;
-
             StartCoroutine(LoadImageOntoMagicWindow(magicWindow, imageURL));
         }
 
@@ -87,7 +74,6 @@ namespace GalaxyExplorer
             yield return www;
             www.LoadImageIntoTexture(tex);
             magicWindow.GetComponent<MeshRenderer>().materials[0].mainTexture = tex;
-            //GetComponent<Renderer>().material.mainTexture = tex;
         }
 
     }
