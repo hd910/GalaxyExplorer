@@ -376,11 +376,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 143324, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
       propertyPath: m_Name
-      value: SolarSystem2
+      value: Chronozoom
       objectReference: {fileID: 0}
     - target: {fileID: 11490036, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
       propertyPath: TransitionScene
       value: ChronozoomView
+      objectReference: {fileID: 0}
+    - target: {fileID: 131832, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332014, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332014, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 898125e9372b7954eab29f90b06b5b35, type: 2}
+    - target: {fileID: 131832, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_Name
+      value: Chronozoom_Card
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
