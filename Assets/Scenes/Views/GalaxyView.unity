@@ -327,6 +327,68 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d1f18f2ea603d343bbb3fe8ecfc371e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &391538165
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1899807949}
+    m_Modifications:
+    - target: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.255
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.506
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.0000000037252903
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.0000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 143324, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: m_Name
+      value: SolarSystem2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490036, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+      propertyPath: TransitionScene
+      value: ChronozoomView
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &391538166 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 411438, guid: fdb334f3709266145a4fb6faf0e2f03b, type: 2}
+  m_PrefabInternal: {fileID: 391538165}
 --- !u!114 &424204953 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11469164, guid: 848ab73f5b4980348832008b60a85a5a,
@@ -1192,6 +1254,7 @@ Transform:
   - {fileID: 1010720056}
   - {fileID: 1379719062}
   - {fileID: 1752822994}
+  - {fileID: 391538166}
   m_Father: {fileID: 1296047784}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
