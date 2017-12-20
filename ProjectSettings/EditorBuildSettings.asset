@@ -63,5 +63,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Views/S102View.unity
     guid: 5ba6233b4e6afba4c86e85d53166e15d
   - enabled: 1
-    path: Assets/Scenes/Views/ChronzoomView.unity
+    path: Assets/Scenes/Views/ChronozoomView.unity
     guid: 889db021cd1da8e488e983174b8755a1
