@@ -47,20 +47,30 @@ namespace GalaxyExplorer
 
         void DisplayData(Timeline timeline)
         {
-            //Instantiate the panel box for displaying information
-            GameObject panelBoxGameObject = Instantiate(panelBox);
+            float xPosition = 0.028f;
+            foreach (Exhibit exhibit in timeline.exhibits)
+            {
+                //Instantiate the panel box for displaying information
+                GameObject panelBoxGameObject = Instantiate(panelBox);
+                Vector3 currentPosition = panelBoxGameObject.transform.position;
+                panelBoxGameObject.transform.position = new Vector3(currentPosition.x + xPosition, currentPosition.y, currentPosition.z);
+                xPosition += 0.028f;
 
-            //Finds the heading text inside the box and change the title with chronozoom data
-            GameObject headingText = panelBoxGameObject.transform.Find("Canvas/Heading").gameObject;
-            headingText.GetComponent<Text>().text = timeline.exhibits[0].title;
+                //Finds the heading text inside the box and change the title with chronozoom data
+                GameObject headingText = panelBoxGameObject.transform.Find("Canvas/Heading").gameObject;
+                headingText.GetComponent<Text>().text = exhibit.title;
 
-            //Finds the content text inside the box and change the content with chronozoom data
-            GameObject yearText= panelBoxGameObject.transform.Find("Canvas/Year").gameObject;
-            yearText.GetComponent<Text>().text = timeline.start;
+                //Finds the content text inside the box and change the content with chronozoom data
+                GameObject yearText = panelBoxGameObject.transform.Find("Canvas/Year").gameObject;
+                yearText.GetComponent<Text>().text = exhibit.time.ToString();
 
-            //Finds the collection text inside the box and change the content with chronozoom data
-            GameObject collectionText = panelBoxGameObject.transform.Find("Canvas/Collection").gameObject;
-            collectionText.GetComponent<Text>().text = timeline.Regime;
+                //Finds the collection text inside the box and change the content with chronozoom data
+                GameObject collectionText = panelBoxGameObject.transform.Find("Canvas/Collection").gameObject;
+                collectionText.GetComponent<Text>().text = timeline.Regime;
+            }
+            
+
+
 
             //Use when magic window is needed
             ////Finds the magic window gameobject to display the image
