@@ -10,16 +10,14 @@ namespace GalaxyExplorer
 {
     public class ChronozoomLoader : MonoBehaviour
     {
-        public GameObject text;
+        public GameObject panelBox;
         public GameObject detailsCanvas;
 
         private const string ChronozoomURI = "http://www.chronozoom.com/api/gettimelines?supercollection=chronozoom";
 
         void Awake()
         {
-            //TODO: Need to change loader to better position. Right now called from Earth prefab to demonstrate it working
-            if (GameObject.Find("ChronozoomDetails(Clone)") == null)
-                StartCoroutine(GetChronozoomData());
+            StartCoroutine(GetChronozoomData());
         }
 
         IEnumerator GetChronozoomData()
@@ -49,21 +47,26 @@ namespace GalaxyExplorer
 
         void DisplayData(Timeline timeline)
         {
-            //Instantiate the main canvas for displaying information
-            GameObject detailsCanvasGameObject = Instantiate(detailsCanvas);
+            //Instantiate the panel box for displaying information
+            GameObject panelBoxGameObject = Instantiate(panelBox);
 
-            //Finds the heading text inside the canvas and change the title with chronozoom data
-            GameObject headingText = detailsCanvasGameObject.transform.Find("BackgroundWhite/HeadingText").gameObject;
+            //Finds the heading text inside the box and change the title with chronozoom data
+            GameObject headingText = panelBoxGameObject.transform.Find("Canvas/Heading").gameObject;
             headingText.GetComponent<Text>().text = timeline.exhibits[0].title;
 
-            //Finds the content text inside the canvas and change the content with chronozoom data
-            GameObject contentText= detailsCanvasGameObject.transform.Find("BackgroundWhite/ContentText").gameObject;
-            contentText.GetComponent<Text>().text = timeline.exhibits[0].contentItems[0].description;
+            //Finds the content text inside the box and change the content with chronozoom data
+            GameObject yearText= panelBoxGameObject.transform.Find("Canvas/Year").gameObject;
+            yearText.GetComponent<Text>().text = timeline.start;
 
-            //Finds the magic window gameobject to display the image
-            GameObject magicWindow = detailsCanvasGameObject.transform.Find("ChronozoomMagicWindow").gameObject;
-            String imageURL = timeline.exhibits[0].contentItems[0].uri;
-            StartCoroutine(LoadImageOntoMagicWindow(magicWindow, imageURL));
+            //Finds the collection text inside the box and change the content with chronozoom data
+            GameObject collectionText = panelBoxGameObject.transform.Find("Canvas/Collection").gameObject;
+            collectionText.GetComponent<Text>().text = timeline.Regime;
+
+            //Use when magic window is needed
+            ////Finds the magic window gameobject to display the image
+            //GameObject magicWindow = detailsCanvasGameObject.transform.Find("ChronozoomMagicWindow").gameObject;
+            //String imageURL = timeline.exhibits[0].contentItems[0].uri;
+            //StartCoroutine(LoadImageOntoMagicWindow(magicWindow, imageURL));
         }
 
         IEnumerator LoadImageOntoMagicWindow(GameObject magicWindow, String imageURL)

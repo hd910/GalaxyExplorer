@@ -29,7 +29,6 @@ GameObject:
   - component: {fileID: 20524686}
   - component: {fileID: 11416672}
   - component: {fileID: 11479060}
-  - component: {fileID: 114665335853319380}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -591,17 +590,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143246}
   m_IsPrefabParent: 1
---- !u!114 &114665335853319380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d6b0249a99f1314fb6910e069fabd64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1182532613493554, guid: c20920dcb0955234fb9ad792bc7df833, type: 2}
-  detailsCanvas: {fileID: 1678914771214396, guid: da895c6a3f1068a46be551e46c80297e,
-    type: 2}
