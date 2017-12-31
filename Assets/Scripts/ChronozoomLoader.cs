@@ -13,6 +13,7 @@ namespace GalaxyExplorer
         public GameObject panelBox;
         public GameObject detailsCanvas;
 
+        private int numberOfRows = 3;
         private const string ChronozoomURI = "http://www.chronozoom.com/api/gettimelines?supercollection=chronozoom";
 
         void Awake()
@@ -47,14 +48,27 @@ namespace GalaxyExplorer
 
         void DisplayData(Timeline timeline)
         {
-            float xPosition = 0.028f;
+            int currentRow = 0;
+            float xOffSet = 0.028f;
+            float yOffset = -0.0131f;
+            float xPosition = xOffSet;
+            float yPosition = -yOffset;
             foreach (Exhibit exhibit in timeline.exhibits)
             {
+
                 //Instantiate the panel box for displaying information
                 GameObject panelBoxGameObject = Instantiate(panelBox);
                 Vector3 currentPosition = panelBoxGameObject.transform.position;
-                panelBoxGameObject.transform.position = new Vector3(currentPosition.x + xPosition, currentPosition.y, currentPosition.z);
-                xPosition += 0.028f;
+                if (currentRow == 0)
+                {
+                    yPosition = 0;
+                }
+                else
+                {
+                    yPosition = yOffset + yPosition;
+                }
+                panelBoxGameObject.transform.position = new Vector3(currentPosition.x + xPosition, currentPosition.y + yPosition, currentPosition.z);
+
 
                 //Finds the heading text inside the box and change the title with chronozoom data
                 GameObject headingText = panelBoxGameObject.transform.Find("Canvas/Heading").gameObject;
@@ -67,8 +81,20 @@ namespace GalaxyExplorer
                 //Finds the collection text inside the box and change the content with chronozoom data
                 GameObject collectionText = panelBoxGameObject.transform.Find("Canvas/Collection").gameObject;
                 collectionText.GetComponent<Text>().text = timeline.Regime;
+
+                //Reset row number if exceeds row limit. Increment otherwise
+                if(currentRow+1 == numberOfRows)
+                {
+                    currentRow = 0;
+                    xPosition = xOffSet + xPosition;
+
+                }else
+                {
+                    currentRow++;
+                }
+
             }
-            
+
 
 
 
