@@ -58,6 +58,7 @@ namespace GalaxyExplorer
 
                 //Instantiate the panel box for displaying information
                 GameObject panelBoxGameObject = Instantiate(panelBox);
+                panelBoxGameObject.transform.parent = GameObject.Find("ChronozoomContent").transform;
                 Vector3 currentPosition = panelBoxGameObject.transform.position;
                 if (currentRow == 0)
                 {
