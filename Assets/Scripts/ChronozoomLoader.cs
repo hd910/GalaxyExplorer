@@ -49,7 +49,7 @@ namespace GalaxyExplorer
         void DisplayData(Timeline timeline)
         {
             int currentRow = 0;
-            float xOffSet = 0.028f;
+            float xOffSet = -0.028f;
             float yOffset = -0.0131f;
             float xPosition = xOffSet;
             float yPosition = -yOffset;
@@ -68,7 +68,7 @@ namespace GalaxyExplorer
                 {
                     yPosition = yOffset + yPosition;
                 }
-                panelBoxGameObject.transform.position = new Vector3(currentPosition.x + xPosition, currentPosition.y + yPosition, currentPosition.z);
+                panelBoxGameObject.transform.localPosition = new Vector3(currentPosition.x + xPosition, currentPosition.y + yPosition, currentPosition.z);
 
 
                 //Finds the heading text inside the box and change the title with chronozoom data
