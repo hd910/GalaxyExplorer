@@ -49,27 +49,31 @@ namespace GalaxyExplorer
         void DisplayData(Timeline timeline)
         {
             int currentRow = 0;
-            float xOffSet = -0.028f;
-            float yOffset = -0.0131f;
-            float xPosition = xOffSet;
-            float yPosition = -yOffset;
+            float xOffSet = 0.0533f;
+            float yOffset = -0.024f;
+            float xPosition = 0f;
+            float yPosition = 0f;
+
+            var panelBoxGroup = new GameObject();
+            panelBoxGroup.transform.parent = GameObject.Find("ChronozoomContent").transform;
+            panelBoxGroup.transform.localPosition = Vector3.zero;
+            panelBoxGroup.transform.rotation = Quaternion.identity;
             foreach (Exhibit exhibit in timeline.exhibits)
             {
 
                 //Instantiate the panel box for displaying information
                 GameObject panelBoxGameObject = Instantiate(panelBox);
-                panelBoxGameObject.transform.parent = GameObject.Find("ChronozoomContent").transform;
+                panelBoxGameObject.transform.parent = panelBoxGroup.transform;
                 Vector3 currentPosition = panelBoxGameObject.transform.position;
                 if (currentRow == 0)
                 {
-                    yPosition = 0;
+                    yPosition = 0f;
                 }
                 else
                 {
                     yPosition = yOffset + yPosition;
                 }
                 panelBoxGameObject.transform.localPosition = new Vector3(currentPosition.x + xPosition, currentPosition.y + yPosition, currentPosition.z);
-
 
                 //Finds the heading text inside the box and change the title with chronozoom data
                 GameObject headingText = panelBoxGameObject.transform.Find("Canvas/Heading").gameObject;
