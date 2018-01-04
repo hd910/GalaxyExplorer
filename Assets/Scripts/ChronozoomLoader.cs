@@ -49,6 +49,7 @@ namespace GalaxyExplorer
         void DisplayData(Timeline timeline)
         {
             int currentRow = 0;
+            int numberOfColumns = 0;
             float xOffSet = 0.0533f;
             float yOffset = -0.024f;
             float xPosition = 0f;
@@ -68,6 +69,7 @@ namespace GalaxyExplorer
                 if (currentRow == 0)
                 {
                     yPosition = 0f;
+                    numberOfColumns++;
                 }
                 else
                 {
@@ -99,9 +101,11 @@ namespace GalaxyExplorer
                 }
 
             }
+
+            //Makes sure the position, rotation and scale stays constant on each load
             var positionCube = GameObject.Find("ChronozoomPositionCube").transform;
+            var centrePosition = new Vector3(positionCube.position.x - (numberOfColumns/2 * 0.0533f), positionCube.position.y, positionCube.position.z);
             panelBoxGroup.transform.SetPositionAndRotation(positionCube.position, positionCube.rotation);
-            Debug.Log("Scale: " + panelBoxGroup.transform.localScale.x + +panelBoxGroup.transform.localScale.y + panelBoxGroup.transform.localScale.z);
             panelBoxGroup.transform.localScale = new Vector3(1, 1, 1);
 
 
