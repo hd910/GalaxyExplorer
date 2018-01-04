@@ -99,8 +99,10 @@ namespace GalaxyExplorer
                 }
 
             }
-
-
+            var positionCube = GameObject.Find("ChronozoomPositionCube").transform;
+            panelBoxGroup.transform.SetPositionAndRotation(positionCube.position, positionCube.rotation);
+            Debug.Log("Scale: " + panelBoxGroup.transform.localScale.x + +panelBoxGroup.transform.localScale.y + panelBoxGroup.transform.localScale.z);
+            panelBoxGroup.transform.localScale = new Vector3(1, 1, 1);
 
 
             //Use when magic window is needed
