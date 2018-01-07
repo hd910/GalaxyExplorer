@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4892925344397238}
   - component: {fileID: 65855427086834722}
-  - component: {fileID: 65686841294788164}
+  - component: {fileID: 114658039842547830}
   m_Layer: 8
   m_Name: ChronozoomBox
   m_TagString: Untagged
@@ -199,6 +199,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1831227104657056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4406196331873102}
+  - component: {fileID: 64784848304282742}
+  m_Layer: 13
+  m_Name: CursorCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4310362724784166
 Transform:
   m_ObjectHideFlags: 1
@@ -225,6 +241,19 @@ Transform:
   m_Father: {fileID: 4892925344397238}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!4 &4406196331873102
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831227104657056}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.189, y: -0, z: -0}
+  m_LocalScale: {x: 31.772507, y: 1.0828968, z: 2.3995523}
+  m_Children: []
+  m_Father: {fileID: 4892925344397238}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4694042722190650
 Transform:
   m_ObjectHideFlags: 1
@@ -294,6 +323,7 @@ Transform:
   - {fileID: 4325762522155486}
   - {fileID: 4694042722190650}
   - {fileID: 224193405122752080}
+  - {fileID: 4406196331873102}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0.99000007, y: -719.8, z: 0.411}
@@ -543,18 +573,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560209652990314}
   m_Mesh: {fileID: 4300002, guid: ba6e14efc364cd84b82aa2661dabb05d, type: 3}
---- !u!65 &65686841294788164
-BoxCollider:
+--- !u!64 &64784848304282742
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1095629294181148}
+  m_GameObject: {fileID: 1831227104657056}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.41, y: 0.15, z: 0.15}
-  m_Center: {x: 0.185, y: 0, z: 0}
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: ba6e14efc364cd84b82aa2661dabb05d, type: 3}
 --- !u!65 &65855427086834722
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -565,7 +597,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.41, y: 0.15, z: 0.15}
+  m_Size: {x: 0.41, y: 0.18, z: 0.19}
   m_Center: {x: 0.185, y: 0, z: 0}
 --- !u!114 &114280910813846948
 MonoBehaviour:
@@ -670,6 +702,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114658039842547830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1095629294181148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce150afe141d43f4f8b221b7ef9ee2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114749963177893740
 MonoBehaviour:
   m_ObjectHideFlags: 1
