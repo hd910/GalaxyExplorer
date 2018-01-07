@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4892925344397238}
   - component: {fileID: 65855427086834722}
   - component: {fileID: 114658039842547830}
+  - component: {fileID: 95177432678587038}
   m_Layer: 8
   m_Name: ChronozoomBox
   m_TagString: Untagged
@@ -599,6 +600,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41, y: 0.18, z: 0.19}
   m_Center: {x: 0.185, y: 0, z: 0}
+--- !u!95 &95177432678587038
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1095629294181148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2fdb0970a0124494fab49baeb08e477d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114280910813846948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -713,6 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce150afe141d43f4f8b221b7ef9ee2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VoiceCommands: []
 --- !u!114 &114749963177893740
 MonoBehaviour:
   m_ObjectHideFlags: 1

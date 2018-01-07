@@ -17,6 +17,8 @@ public class ChronozoomBoxManager : GazeSelectionTarget
     public override bool OnTapped()
     {
         Debug.Log("Tapped");
+        Animator anim = gameObject.GetComponent<Animator>();
+        anim.Play("Open");
         return true;
     }
 }
