@@ -6,12 +6,12 @@ public class ChronozoomBoxManager : GazeSelectionTarget
 {
     public override void OnGazeSelect()
     {
-        Debug.Log("Select");
+        gameObject.transform.Find("PanelFront").GetComponent<Renderer>().material.color = new Color32(143, 87, 201,255) ;
     }
 
     public override void OnGazeDeselect()
     {
-        Debug.Log("Deselect");
+        gameObject.transform.Find("PanelFront").GetComponent<Renderer>().material.color = new Color32(120, 36, 206,255);
     }
 
     public override bool OnTapped()
