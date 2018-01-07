@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 65855427086834722}
   - component: {fileID: 114658039842547830}
   - component: {fileID: 95177432678587038}
+  - component: {fileID: 114562057419995684}
   m_Layer: 8
   m_Name: ChronozoomBox
   m_TagString: Untagged
@@ -699,6 +700,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: The Birth of the Milky Way
+--- !u!114 &114562057419995684
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1095629294181148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8519de502cb1f34a92a19f51320f5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PresentationDistance: 0.5
+  TravelTime: 0.7
+  OrientToCamera: 0
+  OrientYAxisOnly: 0
+  TargetTranfsorm: {fileID: 0}
 --- !u!114 &114563185709921284
 MonoBehaviour:
   m_ObjectHideFlags: 1

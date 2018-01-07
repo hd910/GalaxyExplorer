@@ -5,17 +5,15 @@ using UnityEngine;
 
 public class ChronozoomBoxManager : GazeSelectionTarget
 {
-    public float PresentationDistance = 1f;
-    public float TravelTime = 1f;
-    public bool OrientToCamera = true;
-    public bool OrientYAxisOnly = true;
-    public Transform TargetTransform;
+    private ChronozoomPresentToPlayer present;
 
-    Vector3 initialPosition;
-    Quaternion initialRotation;
-    bool presenting = false;
-    bool returning = false;
-    bool inPosition = false;
+    public void Start()
+    {
+        // Turn off our animator until it's needed
+        GetComponent<Animator>().enabled = false;
+        present = GetComponent<ChronozoomPresentToPlayer>();
+    }
+
 
     public override void OnGazeSelect()
     {
@@ -30,95 +28,26 @@ public class ChronozoomBoxManager : GazeSelectionTarget
     public override bool OnTapped()
     {
         Debug.Log("Tapped");
+        if (present.Presenting)
+            return true;
 
-        Present();
-
+        StartCoroutine(UpdateActive());
         return true;
     }
 
-    public void Present()
+    public IEnumerator UpdateActive()
     {
-        if (presenting)
-            return;
+        present.Present();
 
-        presenting = true;
-        StartCoroutine(PresentOverTime());
-    }
-
-    public void Return()
-    {
-        if (!presenting)
-            return;
-
-        returning = true;
-    }
-
-    IEnumerator PresentOverTime()
-    {
-
-        if (TargetTransform == null)
-            TargetTransform = transform;
-
-        initialPosition = transform.position;
-        initialRotation = transform.rotation;
-        Vector3 cameraPosition = Camera.main.transform.position;
-        Vector3 cameraForward = Camera.main.transform.forward;
-        // Adjust the forward so we're only orienting in the Y axis
-        if (OrientYAxisOnly)
+        while (!present.InPosition)
         {
-            cameraForward.y = 0f;
-            cameraForward.Normalize();
-        }
-        Quaternion targetRotation = Quaternion.LookRotation(cameraForward, Vector3.up);
-        Vector3 targetPosition = cameraPosition + (cameraForward * PresentationDistance);// TODO use a HUX tool or something to get the main camera
-        inPosition = false;
-
-        float normalizedProgress = 0f;
-        float startTime = Time.time;
-
-        while (!inPosition)
-        {
-            // Move the object directly in front of player
-            normalizedProgress = (Time.time - startTime) / TravelTime;
-            TargetTransform.position = Vector3.Lerp(initialPosition, targetPosition, normalizedProgress);
-            if (OrientToCamera)
-            {
-                TargetTransform.rotation = Quaternion.Lerp(TargetTransform.rotation, targetRotation, Time.deltaTime * 10f);
-            }
-            inPosition = Vector3.Distance(TargetTransform.position, targetPosition) < 0.05f;
+            // Wait for the item to be in presentation distance before animating
             yield return null;
         }
 
-        Animator anim = gameObject.GetComponent<Animator>();
-        anim.Play("Open");
-
-        while (!returning)
-        {
-            // Wait to be told to return
-            yield return null;
-        }
-
-        // Move back to our initial position
-        inPosition = false;
-        normalizedProgress = 0f;
-        startTime = Time.time;
-        while (normalizedProgress < 1f)
-        {
-            normalizedProgress = (Time.time - startTime) / TravelTime;
-            TargetTransform.position = Vector3.Lerp(targetPosition, initialPosition, normalizedProgress);
-            if (OrientToCamera)
-            {
-                TargetTransform.rotation = Quaternion.Lerp(TargetTransform.rotation, initialRotation, Time.deltaTime * 10f);
-            }
-            inPosition = Vector3.Distance(TargetTransform.position, initialPosition) < 0.05f;
-            yield return null;
-        }
-
-        TargetTransform.position = initialPosition;
-        TargetTransform.rotation = initialRotation;
-        presenting = false;
-        returning = false;
-
-        yield break;
+        // Start the animation
+        Animator animator = gameObject.GetComponent<Animator>();
+        animator.enabled = true;
+        animator.SetBool("Opened", true);
     }
 }
