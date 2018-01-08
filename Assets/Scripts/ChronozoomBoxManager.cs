@@ -18,21 +18,23 @@ public class ChronozoomBoxManager : GazeSelectionTarget
 
     public override void OnGazeSelect()
     {
+        //Changes the colour of the box to give a highlighted hover effect
         gameObject.transform.Find("PanelFront").GetComponent<Renderer>().material.color = new Color32(143, 87, 201,255) ;
     }
 
     public override void OnGazeDeselect()
     {
+        //Changes the colour back to original
         gameObject.transform.Find("PanelFront").GetComponent<Renderer>().material.color = new Color32(120, 36, 206,255);
     }
 
     public override bool OnTapped()
     {
+        //Updates the current active exhibit to the current one
         present = gameObject.GetComponent<ChronozoomPresentToPlayer>();
         if (ChronozoomPresentToPlayer.ActiveExhibit == present)
         {
             ChronozoomPresentToPlayer.ActiveExhibit = null;
-            Debug.Log("Reset exhibit");
         }
         else
         {
@@ -63,14 +65,13 @@ public class ChronozoomBoxManager : GazeSelectionTarget
 
         while (ChronozoomPresentToPlayer.ActiveExhibit == present)
         {
-            //ElementName.GetComponent<MeshRenderer>().material.color = elementNameColor;
             // Wait for the player to send it back
             yield return null;
         }
 
         animator.SetBool("Opened", false);
 
-        yield return new WaitForSeconds(0.66f); // TODO get rid of magic number        
+        yield return new WaitForSeconds(0.66f);      
 
         // Return the item to its original position
         present.Return();
