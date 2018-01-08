@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ChronozoomBoxManager : GazeSelectionTarget
 {
+    public static ChronozoomBoxManager ActiveBox;
     private ChronozoomPresentToPlayer present;
 
     public void Start()
@@ -27,11 +28,21 @@ public class ChronozoomBoxManager : GazeSelectionTarget
 
     public override bool OnTapped()
     {
-        Debug.Log("Tapped");
-        if (present.Presenting)
-            return true;
+        present = gameObject.GetComponent<ChronozoomPresentToPlayer>();
+        if (ChronozoomPresentToPlayer.ActiveExhibit == present)
+        {
+            ChronozoomPresentToPlayer.ActiveExhibit = null;
+            Debug.Log("Reset exhibit");
+        }
+        else
+        {
+            ChronozoomPresentToPlayer.ActiveExhibit = present;
+            if (present.Presenting)
+                return true;
 
-        StartCoroutine(UpdateActive());
+            StartCoroutine(UpdateActive());
+        }
+
         return true;
     }
 
@@ -49,5 +60,19 @@ public class ChronozoomBoxManager : GazeSelectionTarget
         Animator animator = gameObject.GetComponent<Animator>();
         animator.enabled = true;
         animator.SetBool("Opened", true);
+
+        while (ChronozoomPresentToPlayer.ActiveExhibit == present)
+        {
+            //ElementName.GetComponent<MeshRenderer>().material.color = elementNameColor;
+            // Wait for the player to send it back
+            yield return null;
+        }
+
+        animator.SetBool("Opened", false);
+
+        yield return new WaitForSeconds(0.66f); // TODO get rid of magic number        
+
+        // Return the item to its original position
+        present.Return();
     }
 }

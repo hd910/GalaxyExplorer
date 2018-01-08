@@ -21,6 +21,7 @@ public class ChronozoomPresentToPlayer : MonoBehaviour {
         }
     }
 
+    public static ChronozoomPresentToPlayer ActiveExhibit;
     public float PresentationDistance = 1f;
     public float TravelTime = 1f;
     public bool OrientToCamera = true;
