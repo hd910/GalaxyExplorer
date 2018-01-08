@@ -89,13 +89,30 @@ namespace GalaxyExplorer
                 GameObject collectionText = panelBoxGameObject.transform.Find("Canvas/Collection").gameObject;
                 collectionText.GetComponent<Text>().text = timeline.Regime;
 
+                //Finds the left detail panel and change heading with chronozoom data
+                GameObject leftDetailHeadingText = panelBoxGameObject.transform.Find("DetailData/InfoBackPanelLeft/Canvas/leftDetailHeading").gameObject;
+                leftDetailHeadingText.GetComponent<Text>().text = (exhibit.contentItems.Count > 0) ? exhibit.contentItems[0].title : "";
+
                 //Finds the left detail panel and change content with chronozoom data
                 GameObject leftDetailText = panelBoxGameObject.transform.Find("DetailData/InfoBackPanelLeft/Canvas/leftDetailDescription").gameObject;
                 leftDetailText.GetComponent<Text>().text = (exhibit.contentItems.Count > 0) ? exhibit.contentItems[0].description : "";
 
+                //Finds the right detail panel and change heading with chronozoom data
+                GameObject rightDetailHeadingText = panelBoxGameObject.transform.Find("DetailData/InfoBackPanelRight/Canvas/rightDetailHeading").gameObject;
+                rightDetailHeadingText.GetComponent<Text>().text = (exhibit.contentItems.Count > 1) ? exhibit.contentItems[1].title : "";
+
                 //Finds the right detail panel and change content with chronozoom data
                 GameObject rightDetailText = panelBoxGameObject.transform.Find("DetailData/InfoBackPanelRight/Canvas/rightDetailDescription").gameObject;
                 rightDetailText.GetComponent<Text>().text = (exhibit.contentItems.Count > 1) ? exhibit.contentItems[1].description: "";
+
+
+                GameObject leftMagicWindow = panelBoxGameObject.transform.Find("DetailData/InfoBackPanelLeft/ChronozoomMagicWindow").gameObject;
+                String imageURLLeft = (exhibit.contentItems.Count > 0) ? exhibit.contentItems[0].uri:null;
+                StartCoroutine(LoadImageOntoMagicWindow(leftMagicWindow, imageURLLeft));
+
+                GameObject rightMagicWindow = panelBoxGameObject.transform.Find("DetailData/InfoBackPanelRight/ChronozoomMagicWindow").gameObject;
+                String imageURLRight = (exhibit.contentItems.Count > 1) ? exhibit.contentItems[1].uri: null;
+                StartCoroutine(LoadImageOntoMagicWindow(rightMagicWindow, imageURLRight));
 
                 //Reset row number if exceeds row limit. Increment otherwise
                 if (currentRow+1 == numberOfRows)
@@ -116,22 +133,21 @@ namespace GalaxyExplorer
             panelBoxGroup.transform.SetPositionAndRotation(positionCube.position, positionCube.rotation);
             panelBoxGroup.transform.localScale = new Vector3(1, 1, 1);
 
-
-            //Use when magic window is needed
-            ////Finds the magic window gameobject to display the image
-            //GameObject magicWindow = detailsCanvasGameObject.transform.Find("ChronozoomMagicWindow").gameObject;
-            //String imageURL = timeline.exhibits[0].contentItems[0].uri;
-            //StartCoroutine(LoadImageOntoMagicWindow(magicWindow, imageURL));
         }
 
         IEnumerator LoadImageOntoMagicWindow(GameObject magicWindow, String imageURL)
         {
+            if (imageURL == null || imageURL.Equals(""))
+            {
+                yield break;
+            }
             Texture2D tex;
             tex = new Texture2D(4, 4, TextureFormat.DXT1, false);
             WWW www = new WWW(imageURL);
             yield return www;
             www.LoadImageIntoTexture(tex);
             magicWindow.GetComponent<MeshRenderer>().materials[0].mainTexture = tex;
+            Debug.Log("Magic window loaded: " + imageURL);
         }
 
     }
