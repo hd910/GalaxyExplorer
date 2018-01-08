@@ -105,7 +105,7 @@ namespace GalaxyExplorer
                 GameObject rightDetailText = panelBoxGameObject.transform.Find("DetailData/InfoBackPanelRight/Canvas/rightDetailDescription").gameObject;
                 rightDetailText.GetComponent<Text>().text = (exhibit.contentItems.Count > 1) ? exhibit.contentItems[1].description: "";
 
-
+                //Load up image onto magic window
                 GameObject leftMagicWindow = panelBoxGameObject.transform.Find("DetailData/InfoBackPanelLeft/ChronozoomMagicWindow").gameObject;
                 String imageURLLeft = (exhibit.contentItems.Count > 0) ? exhibit.contentItems[0].uri:null;
                 StartCoroutine(LoadImageOntoMagicWindow(leftMagicWindow, imageURLLeft));
@@ -147,7 +147,6 @@ namespace GalaxyExplorer
             yield return www;
             www.LoadImageIntoTexture(tex);
             magicWindow.GetComponent<MeshRenderer>().materials[0].mainTexture = tex;
-            Debug.Log("Magic window loaded: " + imageURL);
         }
 
     }

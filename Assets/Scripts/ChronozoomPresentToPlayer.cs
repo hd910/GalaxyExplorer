@@ -36,7 +36,7 @@ public class ChronozoomPresentToPlayer : MonoBehaviour {
 
     public void Awake()
     {
-        PresentationDistance = HolographicSettings.IsDisplayOpaque ? 0.5f : 1f;
+
     }
 
     public void Present()
@@ -65,14 +65,9 @@ public class ChronozoomPresentToPlayer : MonoBehaviour {
         initialRotation = transform.rotation;
         Vector3 cameraPosition = Camera.main.transform.position;
         Vector3 cameraForward = Camera.main.transform.forward;
-        // Adjust the forward so we're only orienting in the Y axis
-        if (OrientYAxisOnly)
-        {
-            cameraForward.y = 0f;
-            cameraForward.Normalize();
-        }
+
         Quaternion targetRotation = Quaternion.LookRotation(cameraForward, Vector3.up);
-        Vector3 targetPosition = cameraPosition + (cameraForward * PresentationDistance);// TODO use a HUX tool or something to get the main camera
+        Vector3 targetPosition = cameraPosition + cameraForward * PresentationDistance;
         inPosition = false;
 
         float normalizedProgress = 0f;

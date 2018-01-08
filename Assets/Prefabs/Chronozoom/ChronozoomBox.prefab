@@ -1327,9 +1327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8519de502cb1f34a92a19f51320f5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PresentationDistance: 0.5
+  PresentationDistance: 1
   TravelTime: 0.7
-  OrientToCamera: 0
+  OrientToCamera: 1
   OrientYAxisOnly: 0
   TargetTransform: {fileID: 0}
 --- !u!114 &114563185709921284
