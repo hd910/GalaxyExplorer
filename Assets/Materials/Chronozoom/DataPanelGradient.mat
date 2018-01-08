@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ElementDataPanelGradient
+  m_Name: DataPanelGradient
   m_Shader: {fileID: 4800000, guid: 094d90edd31b4c341923e0248b3ea218, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON _EMISSION _LIGHTMAPPING_DYNAMIC_LIGHTMAPS _UVSEC_UV1
   m_LightmapFlags: 1
