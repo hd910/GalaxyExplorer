@@ -89,8 +89,16 @@ namespace GalaxyExplorer
                 GameObject collectionText = panelBoxGameObject.transform.Find("Canvas/Collection").gameObject;
                 collectionText.GetComponent<Text>().text = timeline.Regime;
 
+                //Finds the left detail panel and change content with chronozoom data
+                GameObject leftDetailText = panelBoxGameObject.transform.Find("DetailData/InfoBackPanelLeft/Canvas/leftDetailDescription").gameObject;
+                leftDetailText.GetComponent<Text>().text = (exhibit.contentItems.Count > 0) ? exhibit.contentItems[0].description : "";
+
+                //Finds the right detail panel and change content with chronozoom data
+                GameObject rightDetailText = panelBoxGameObject.transform.Find("DetailData/InfoBackPanelRight/Canvas/rightDetailDescription").gameObject;
+                rightDetailText.GetComponent<Text>().text = (exhibit.contentItems.Count > 1) ? exhibit.contentItems[1].description: "";
+
                 //Reset row number if exceeds row limit. Increment otherwise
-                if(currentRow+1 == numberOfRows)
+                if (currentRow+1 == numberOfRows)
                 {
                     currentRow = 0;
                     xPosition = xOffSet + xPosition;
