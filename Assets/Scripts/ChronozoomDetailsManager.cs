@@ -8,11 +8,12 @@ using UnityEngine.UI;
 public class ChronozoomDetailsManager : MonoBehaviour {
 
     public List<ContentItem> contentItems { get; set; }
-    private int activeIndex;
+    private int pageNumber;
+    private int numberOfPanels = 2;
 
 	// Use this for initialization
 	void Start () {
-        activeIndex = 1;
+        pageNumber = 1;
 	}
 	
 	// Update is called once per frame
@@ -25,16 +26,72 @@ public class ChronozoomDetailsManager : MonoBehaviour {
         DetailsPanel left = (contentItems.Count > 0) ? new DetailsPanel(contentItems[0].title, contentItems[0].description, contentItems[0].uri): new DetailsPanel("", "", "");
         DetailsPanel right = (contentItems.Count > 1) ? new DetailsPanel(contentItems[1].title, contentItems[1].description, contentItems[1].uri) : new DetailsPanel("", "", "");
         DisplayPanelData(left, right);
+
+        if(contentItems.Count < numberOfPanels)
+        {
+            //Gray out right button
+            GameObject rightArrowGameObject = transform.Find("DetailData/Canvas/RightImage").gameObject;
+            rightArrowGameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 50);
+
+            rightArrowGameObject.GetComponent<ChronozoomDetailControl>().isActive = false;
+        }
     }
 
     public void Next()
     {
+        if (pageNumber * numberOfPanels < contentItems.Count)
+        {
+            int index = pageNumber * numberOfPanels;
+            DetailsPanel left = (index <= contentItems.Count) ? new DetailsPanel(contentItems[index].title, contentItems[index].description, contentItems[index].uri) : new DetailsPanel("", "", "");
+            DetailsPanel right = (index + 1 <= contentItems.Count) ? new DetailsPanel(contentItems[index+1].title, contentItems[index+1].description, contentItems[index+1].uri) : new DetailsPanel("", "", "");
+            DisplayPanelData(left, right);
+            Debug.Log("Loading : " + index + " and " + (index+1));
+            Debug.Log(contentItems[2].title);
+            pageNumber++;
 
+            //Un-gray out left arrow
+            GameObject leftArrowGameObject = transform.Find("DetailData/Canvas/LeftImage").gameObject;
+            leftArrowGameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            leftArrowGameObject.GetComponent<ChronozoomDetailControl>().isActive = true;
+
+            if (pageNumber * numberOfPanels >= contentItems.Count)
+            {
+                //Last page. Need to gray out right arrow
+                GameObject rightArrowGameObject = transform.Find("DetailData/Canvas/RightImage").gameObject;
+                rightArrowGameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 50);
+
+                rightArrowGameObject.GetComponent<ChronozoomDetailControl>().isActive = false;
+            }
+        }
     }
 
     public void Previous()
     {
+        if (pageNumber > 1)
+        {
+            pageNumber--;
+            int index = pageNumber * numberOfPanels - numberOfPanels;
+            DetailsPanel left = (index <= contentItems.Count) ? new DetailsPanel(contentItems[index].title, contentItems[index].description, contentItems[index].uri) : new DetailsPanel("", "", "");
+            DetailsPanel right = (index + 1 <= contentItems.Count) ? new DetailsPanel(contentItems[index + 1].title, contentItems[index + 1].description, contentItems[index + 1].uri) : new DetailsPanel("", "", "");
+            DisplayPanelData(left, right);
+            Debug.Log("Loading : " + index + " and " + (index + 1));
+            Debug.Log(contentItems[2].title);
 
+            //Un-gray out right arrow
+            GameObject rightArrowGameObject = transform.Find("DetailData/Canvas/RightImage").gameObject;
+            rightArrowGameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            rightArrowGameObject.GetComponent<ChronozoomDetailControl>().isActive = true;
+
+            if (pageNumber == 1)
+            {
+                //First page. Need to gray out left arrow
+                GameObject leftArrowGameObject = transform.Find("DetailData/Canvas/LeftImage").gameObject;
+                leftArrowGameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 50);
+
+                leftArrowGameObject.GetComponent<ChronozoomDetailControl>().isActive = false;
+            }
+        }
+        
     }
 
     private void DisplayPanelData(DetailsPanel left, DetailsPanel right)
