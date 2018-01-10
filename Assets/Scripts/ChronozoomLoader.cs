@@ -43,6 +43,7 @@ namespace GalaxyExplorer
             
             Timeline timeline = new Timeline();
             timeline = JsonConvert.DeserializeObject<Timeline>(data);
+            timeline = ReorderTimeline(timeline);
             DisplayData(timeline);
         }
 
@@ -95,6 +96,19 @@ namespace GalaxyExplorer
             panelBoxGroup.transform.SetPositionAndRotation(positionCube.position, positionCube.rotation);
             panelBoxGroup.transform.localScale = new Vector3(1, 1, 1);
 
+        }
+
+        private Timeline ReorderTimeline(Timeline timeline)
+        {
+            Exhibit[] exhibits = timeline.exhibits;
+            Array.Sort<Exhibit>(exhibits, CompareStrings);
+            timeline.exhibits = exhibits;
+            return timeline;
+        }
+
+        private static int CompareStrings(Exhibit a, Exhibit b)
+        {
+            return a.time.CompareTo(b.time);
         }
 
     }
