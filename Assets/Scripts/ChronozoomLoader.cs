@@ -48,12 +48,9 @@ namespace GalaxyExplorer
 
         void DisplayData(Timeline timeline)
         {
-            int currentRow = 0;
             int numberOfColumns = 0;
             float xOffSet = 0.0533f;
-            float yOffset = -0.024f;
             float xPosition = 0f;
-            float yPosition = 0f;
 
             var panelBoxGroup = new GameObject();
             panelBoxGroup.transform.parent = GameObject.Find("ChronozoomContent").transform;
@@ -67,16 +64,7 @@ namespace GalaxyExplorer
 
                 panelBoxGameObject.transform.parent = panelBoxGroup.transform;
                 Vector3 currentPosition = panelBoxGameObject.transform.position;
-                if (currentRow == 0)
-                {
-                    yPosition = 0f;
-                    numberOfColumns++;
-                }
-                else
-                {
-                    yPosition = yOffset + yPosition;
-                }
-                panelBoxGameObject.transform.localPosition = new Vector3(currentPosition.x + xPosition, currentPosition.y + yPosition, currentPosition.z);
+                panelBoxGameObject.transform.localPosition = new Vector3(currentPosition.x + xPosition, currentPosition.y, currentPosition.z);
 
                 //Finds the heading text inside the box and change the title with chronozoom data
                 GameObject headingText = panelBoxGameObject.transform.Find("Canvas/Heading").gameObject;
@@ -95,16 +83,9 @@ namespace GalaxyExplorer
                 detailsManager.contentItems = exhibit.contentItems;
                 detailsManager.Initiate();
 
-                //Reset row number if exceeds row limit. Increment otherwise
-                if (currentRow+1 == numberOfRows)
-                {
-                    currentRow = 0;
-                    xPosition = xOffSet + xPosition;
+                //Move position for next box to the right
+                xPosition = xOffSet + xPosition;
 
-                }else
-                {
-                    currentRow++;
-                }
 
             }
 
