@@ -84,7 +84,7 @@ namespace GalaxyExplorer
 
                 //Finds the content text inside the box and change the content with chronozoom data
                 GameObject yearText = panelBoxGameObject.transform.Find("Canvas/Year").gameObject;
-                yearText.GetComponent<Text>().text = exhibit.time.ToString();
+                yearText.GetComponent<Text>().text = String.Format("{0:0,0}", exhibit.time);
 
                 //Finds the collection text inside the box and change the content with chronozoom data
                 GameObject collectionText = panelBoxGameObject.transform.Find("Canvas/Collection").gameObject;
