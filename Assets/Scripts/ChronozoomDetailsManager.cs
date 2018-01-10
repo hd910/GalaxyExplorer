@@ -8,24 +8,16 @@ using UnityEngine.UI;
 public class ChronozoomDetailsManager : MonoBehaviour {
 
     public List<ContentItem> contentItems { get; set; }
-    private int pageNumber;
+    private int pageNumber = 1;
     private int numberOfPanels = 2;
-
-	// Use this for initialization
-	void Start () {
-        pageNumber = 1;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void Initiate()
     {
         DetailsPanel left = (contentItems.Count > 0) ? new DetailsPanel(contentItems[0].title, contentItems[0].description, contentItems[0].uri): new DetailsPanel("", "", "");
         DetailsPanel right = (contentItems.Count > 1) ? new DetailsPanel(contentItems[1].title, contentItems[1].description, contentItems[1].uri) : new DetailsPanel("", "", "");
         DisplayPanelData(left, right);
+
+        UpdatePageDisplay();
 
         if(contentItems.Count < numberOfPanels)
         {
@@ -62,6 +54,8 @@ public class ChronozoomDetailsManager : MonoBehaviour {
 
                 rightArrowGameObject.GetComponent<ChronozoomDetailControl>().isActive = false;
             }
+
+            UpdatePageDisplay();
         }
     }
 
@@ -90,8 +84,16 @@ public class ChronozoomDetailsManager : MonoBehaviour {
 
                 leftArrowGameObject.GetComponent<ChronozoomDetailControl>().isActive = false;
             }
+
+            UpdatePageDisplay();
         }
         
+    }
+
+    private void UpdatePageDisplay()
+    {
+        GameObject pageDisplayText = transform.Find("DetailData/Canvas/PageDisplay").gameObject;
+        pageDisplayText.GetComponent<Text>().text = pageNumber + " / " + ((contentItems.Count + numberOfPanels -1)/numberOfPanels);
     }
 
     private void DisplayPanelData(DetailsPanel left, DetailsPanel right)
