@@ -601,8 +601,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1349833248808432}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.216, y: 0.085, z: 0.241}
-  m_LocalScale: {x: 31.772507, y: 3.4457662, z: 2.3995523}
+  m_LocalPosition: {x: 0.189, y: -0.003, z: 0.005}
+  m_LocalScale: {x: 31.77251, y: 1.1195866, z: 2.5994997}
   m_Children: []
   m_Father: {fileID: 4892925344397238}
   m_RootOrder: 7
@@ -614,8 +614,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831227104657056}
   m_LocalRotation: {x: -0.7071068, y: -0, z: 0.7071068, w: -4.6566123e-10}
-  m_LocalPosition: {x: -13.8, y: 1.4, z: 34.4}
-  m_LocalScale: {x: 16036.15, y: 714.1929, z: 722.9403}
+  m_LocalPosition: {x: -13.8, y: 1.4, z: -1.0578}
+  m_LocalScale: {x: 10522.639, y: 714.1929, z: 722.9403}
   m_Children: []
   m_Father: {fileID: 224560729360961598}
   m_RootOrder: 0
@@ -709,8 +709,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1208082735172556}
   m_LocalRotation: {x: -0, y: 0.7071068, z: 4.6566123e-10, w: 0.7071068}
-  m_LocalPosition: {x: -14, y: -1.4, z: 34.7}
-  m_LocalScale: {x: 16193.831, y: 724.8624, z: 730.0058}
+  m_LocalPosition: {x: -14, y: -1.4, z: -1.0934}
+  m_LocalScale: {x: 10626.106, y: 724.8624, z: 730.0058}
   m_Children: []
   m_Father: {fileID: 224480044447632288}
   m_RootOrder: 0
@@ -1297,16 +1297,18 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 48
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 48
+    m_BestFit: 1
+    m_MinSize: 48
+    m_MaxSize: 70
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Information here
+  m_Text: This is an artist's conception of the Milky Way galaxy, otherwise known
+    as home to our Solar System. having a disk-shaped structure that is being viewed
+    edge-on.
 --- !u!114 &114090333537614626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1330,9 +1332,9 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 48
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 80
+    m_BestFit: 1
+    m_MinSize: 48
+    m_MaxSize: 70
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
