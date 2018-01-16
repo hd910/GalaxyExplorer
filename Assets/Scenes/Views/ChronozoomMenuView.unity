@@ -118,7 +118,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1822837473}
+    m_TransformParent: {fileID: 1291895666}
     m_Modifications:
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
@@ -133,7 +133,7 @@ Prefab:
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.01119
+      value: -0.0072000017
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
@@ -158,17 +158,17 @@ Prefab:
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0039136
+      value: 0.06459838
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.08079937
+      value: -0.004604079
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
@@ -209,6 +209,25 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681965556975180, guid: 8ba6f409b06fa6f46902359e633da102, type: 2}
+      propertyPath: m_Name
+      value: ChronozoomMenuCentre
+      objectReference: {fileID: 0}
+    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.0001151144
+      objectReference: {fileID: 0}
+    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.0001151144
+      objectReference: {fileID: 0}
+    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.00011511466
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ba6f409b06fa6f46902359e633da102, type: 2}
@@ -283,7 +302,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1822837473}
+    m_TransformParent: {fileID: 1291895666}
     m_Modifications:
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
@@ -298,7 +317,7 @@ Prefab:
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.0053479
+      value: -0.0237379
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
@@ -323,17 +342,17 @@ Prefab:
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.067249
+      value: 0.0012629698
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0808
+      value: -0.004603453
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
@@ -377,27 +396,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1681965556975180, guid: 8ba6f409b06fa6f46902359e633da102, type: 2}
       propertyPath: m_Name
-      value: ChronozoomMenu (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -29.140001
-      objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.000115114395
-      objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.000115114395
-      objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.00011511465
+      value: ChronozoomMenuLeft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ba6f409b06fa6f46902359e633da102, type: 2}
@@ -509,7 +508,7 @@ Transform:
   m_LocalScale: {x: 0.04675697, y: 0.04675697, z: 0.04675697}
   m_Children: []
   m_Father: {fileID: 1822837473}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!23 &1047864134
 MeshRenderer:
@@ -581,7 +580,7 @@ GameObject:
   - component: {fileID: 1073762119}
   - component: {fileID: 1073762118}
   m_Layer: 5
-  m_Name: ChronozoomMenu (3)
+  m_Name: ChronozoomMenuTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -595,16 +594,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1073762116}
   m_LocalRotation: {x: -0, y: -0, z: -6.984919e-10, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.011190001}
-  m_LocalScale: {x: 0.000115333336, y: 0.000115333336, z: 0.000115333336}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0072}
+  m_LocalScale: {x: 0.00011533334, y: 0.00011533334, z: 0.00011533334}
   m_Children:
   - {fileID: 869966860}
-  m_Father: {fileID: 1822837473}
-  m_RootOrder: 4
+  m_Father: {fileID: 1291895666}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.0046, y: 0.1312}
+  m_AnchoredPosition: {x: 0.0639, y: 0.0458}
   m_SizeDelta: {x: 613.06305, y: 172.86554}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1073762118
@@ -687,6 +686,50 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8a34fbb03aa9aa448c7bbeca26615ee, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1291895665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1291895666}
+  - component: {fileID: 1291895667}
+  m_Layer: 0
+  m_Name: ChronozoomMenuGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1291895666
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291895665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00071693264, y: 0, z: 0.007867976}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2079514138}
+  - {fileID: 1059342994}
+  - {fileID: 1642075176}
+  - {fileID: 1073762117}
+  m_Father: {fileID: 1822837473}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1291895667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291895665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f93fcaa2cdca3f46a9606b57b79469f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1378412599
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +744,6 @@ GameObject:
   - component: {fileID: 1378412604}
   - component: {fileID: 1378412605}
   - component: {fileID: 1378412607}
-  - component: {fileID: 1378412606}
   m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
@@ -797,17 +839,6 @@ MonoBehaviour:
     delay: 0.5
     allowReplay: 0
   IntroSFX: {fileID: 0}
---- !u!114 &1378412606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378412599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f93fcaa2cdca3f46a9606b57b79469f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1378412607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -892,7 +923,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1822837473}
+    m_TransformParent: {fileID: 1291895666}
     m_Modifications:
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
@@ -907,7 +938,7 @@ Prefab:
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.0089594
+      value: -0.027190004
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
@@ -937,12 +968,12 @@ Prefab:
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.058146
+      value: 0.12641197
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.08079937
+      value: -0.004604079
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
@@ -986,22 +1017,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1681965556975180, guid: 8ba6f409b06fa6f46902359e633da102, type: 2}
       propertyPath: m_Name
-      value: ChronozoomMenu (2)
+      value: ChronozoomMenuRight
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.00011405094
+      value: 0.000114050956
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.00011405084
+      value: 0.00011405085
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.000114050905
+      value: 0.00011405092
       objectReference: {fileID: 0}
     - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
         type: 2}
@@ -1038,11 +1069,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
-  - {fileID: 2079514138}
-  - {fileID: 1059342994}
   - {fileID: 1047864133}
-  - {fileID: 1642075176}
-  - {fileID: 1073762117}
+  - {fileID: 1291895666}
   m_Father: {fileID: 1905502572}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
