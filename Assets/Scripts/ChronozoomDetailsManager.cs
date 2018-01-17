@@ -37,8 +37,6 @@ public class ChronozoomDetailsManager : MonoBehaviour {
             DetailsPanel left = (index <= contentItems.Count) ? new DetailsPanel(contentItems[index].title, contentItems[index].description, contentItems[index].uri) : new DetailsPanel("", "", "");
             DetailsPanel right = (index + 1 <= contentItems.Count) ? new DetailsPanel(contentItems[index+1].title, contentItems[index+1].description, contentItems[index+1].uri) : new DetailsPanel("", "", "");
             DisplayPanelData(left, right);
-            Debug.Log("Loading : " + index + " and " + (index+1));
-            Debug.Log(contentItems[2].title);
             pageNumber++;
 
             //Un-gray out left arrow
@@ -124,7 +122,7 @@ public class ChronozoomDetailsManager : MonoBehaviour {
         StartCoroutine(LoadImageOntoMagicWindow(rightMagicWindow, imageURLRight));
     }
 
-    IEnumerator LoadImageOntoMagicWindow(GameObject magicWindow, String imageURL)
+    IEnumerator LoadImageOntoMagicWindow(GameObject magicWindow, string imageURL)
     {
         if (imageURL == null || imageURL.Equals(""))
         {

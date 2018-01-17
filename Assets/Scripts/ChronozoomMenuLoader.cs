@@ -9,13 +9,15 @@ public class ChronozoomMenuLoader : MonoBehaviour {
     private List<PlayableCollection> playableCollectionList;
     private const string ChronozoomCollectionsURI = "http://chronoplayapi.azurewebsites.net:80/api/Counts?APIKey=";
     private const string Key = "2c917dc4aaa343a0817688db82ef275d";
+    private ChronozoomMenuManager chronozoomMenuManager;
+    
 
     // Use this for initialization
     void Start () {
         //Change rotation to face camera
         transform.rotation = Camera.main.transform.rotation;
-
         playableCollectionList = new List<PlayableCollection>();
+        chronozoomMenuManager = GetComponent<ChronozoomMenuManager>();
         StartCoroutine(GetChronozoomCollections());
     }
 	
@@ -44,6 +46,7 @@ public class ChronozoomMenuLoader : MonoBehaviour {
 
     void DisplayData()
     {
+        chronozoomMenuManager.Initiate(playableCollectionList);
 
     }
 }

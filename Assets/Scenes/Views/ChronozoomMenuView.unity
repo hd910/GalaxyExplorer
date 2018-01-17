@@ -214,21 +214,6 @@ Prefab:
       propertyPath: m_Name
       value: ChronozoomMenuCentre
       objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.0001151144
-      objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.0001151144
-      objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.00011511466
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ba6f409b06fa6f46902359e633da102, type: 2}
   m_IsPrefabParent: 0
@@ -599,7 +584,7 @@ RectTransform:
   m_Children:
   - {fileID: 869966860}
   m_Father: {fileID: 1291895666}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -695,6 +680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1291895666}
   - component: {fileID: 1291895667}
+  - component: {fileID: 1291895668}
   m_Layer: 0
   m_Name: ChronozoomMenuGroup
   m_TagString: Untagged
@@ -712,10 +698,10 @@ Transform:
   m_LocalPosition: {x: 0.00071693264, y: 0, z: 0.007867976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1073762117}
   - {fileID: 2079514138}
   - {fileID: 1059342994}
   - {fileID: 1642075176}
-  - {fileID: 1073762117}
   m_Father: {fileID: 1822837473}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -728,6 +714,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f93fcaa2cdca3f46a9606b57b79469f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1291895668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291895665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb82a0dd24e06445a387e442d4438be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1378412599
@@ -1110,7 +1107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1905502572
 Transform:
   m_ObjectHideFlags: 0
