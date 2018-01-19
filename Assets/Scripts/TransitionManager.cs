@@ -737,7 +737,7 @@ namespace GalaxyExplorer
                 float scale = sceneSizer.GetScalar(desiredScale) * prevSizer.GetScalar() / (((sourceSizer!= null)?sourceSizer.GetScalar():1) * sceneSizer.FullScreenFillPercentage);
                 content.transform.localScale = new Vector3(scale, scale, scale);
                 content.transform.rotation = desiredRotation;
-                content.transform.position = desiredPosition - ((sourceSizer != null) ? sourceSizer.GetPosition(scale) : Vector3.zero);
+                content.transform.position = desiredPosition - ((sourceSizer != null) ? sourceSizer.GetPosition(scale) : Vector3.back * 10);
                 
 
                 // parent the old and new scenes
