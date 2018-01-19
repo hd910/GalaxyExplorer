@@ -30,6 +30,7 @@ public class ChronozoomMenuManager : MonoBehaviour {
         GameObject leftCollectionMagicWindow = transform.Find("ChronozoomMenuLeft/ChronozoomMagicWindow").gameObject;
         string leftCollectionURL = (leftCollection != null) ? leftCollection.ImageURL : "";
         StartCoroutine(LoadImageOntoMagicWindow(leftCollectionMagicWindow, leftCollectionURL));
+        transform.Find("ChronozoomMenuLeft").GetComponent<ChronozoomMenuItemManager>().currentCollection = leftCollection;
 
         //Update centre collection panel
         GameObject centreCollectionText = transform.Find("ChronozoomMenuCentre/CollectionText").gameObject;
@@ -37,6 +38,7 @@ public class ChronozoomMenuManager : MonoBehaviour {
         GameObject centreCollectionMagicWindow = transform.Find("ChronozoomMenuCentre/ChronozoomMagicWindow").gameObject;
         string centreCollectionURL = (centreCollection != null) ? centreCollection.ImageURL : "";
         StartCoroutine(LoadImageOntoMagicWindow(centreCollectionMagicWindow, centreCollectionURL));
+        transform.Find("ChronozoomMenuCentre").GetComponent<ChronozoomMenuItemManager>().currentCollection = centreCollection;
 
         //Update right collection panel
         GameObject rightCollectionText = transform.Find("ChronozoomMenuRight/CollectionText").gameObject;
@@ -44,6 +46,7 @@ public class ChronozoomMenuManager : MonoBehaviour {
         GameObject rightCollectionMagicWindow = transform.Find("ChronozoomMenuRight/ChronozoomMagicWindow").gameObject;
         string rightCollectionURL = (rightCollection != null) ? rightCollection.ImageURL : "";
         StartCoroutine(LoadImageOntoMagicWindow(rightCollectionMagicWindow, rightCollectionURL));
+        transform.Find("ChronozoomMenuRight").GetComponent<ChronozoomMenuItemManager>().currentCollection = rightCollection;
     }
 
     public void Next()

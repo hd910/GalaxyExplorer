@@ -14,17 +14,22 @@ namespace GalaxyExplorer
         public GameObject detailsCanvas;
 
         private int numberOfRows = 3;
-        private const string ChronozoomURI = "http://www.chronozoom.com/api/gettimelines?supercollection=chronozoom";
+        private const string ChronozoomURI = "http://www.chronozoom.com/api/gettimelines?supercollection=";
+        private string SuperCollection = ChronozoomCollectionChoice.UserChosenSuperCollection;
 
         void Awake()
         {
+            if (SuperCollection == null || SuperCollection.Equals(""))
+            {
+                SuperCollection = "cosmos";
+            }
             StartCoroutine(GetChronozoomData());
         }
 
         IEnumerator GetChronozoomData()
         {
             Debug.Log("Getting Chronozoom Data");
-            UnityWebRequest www = UnityWebRequest.Get(ChronozoomURI);
+            UnityWebRequest www = UnityWebRequest.Get(ChronozoomURI + SuperCollection);
             yield return www.SendWebRequest();
 
             if (www.isNetworkError)
@@ -33,7 +38,8 @@ namespace GalaxyExplorer
             }
             else
             {
-                Debug.Log("Retrieved Chronozoom Data");
+                Debug.Log("Retrieved Chronozoom Data For " + SuperCollection);
+                yield return new WaitForSeconds(2);
                 DeserializeData(www.downloadHandler.text);
             }
         }
@@ -57,7 +63,10 @@ namespace GalaxyExplorer
             panelBoxGroup.transform.parent = GameObject.Find("ChronozoomContent").transform;
             panelBoxGroup.transform.localPosition = Vector3.zero;
             panelBoxGroup.transform.rotation = Quaternion.identity;
-            foreach (Exhibit exhibit in timeline.exhibits)
+
+            List<Exhibit> exhibitList = getExhibitList(timeline);
+
+            foreach (Exhibit exhibit in exhibitList)
             {
 
                 //Instantiate the panel box for displaying information
@@ -96,6 +105,24 @@ namespace GalaxyExplorer
             panelBoxGroup.transform.SetPositionAndRotation(positionCube.position, positionCube.rotation);
             panelBoxGroup.transform.localScale = new Vector3(1, 1, 1);
 
+        }
+
+        private List<Exhibit> getExhibitList(Timeline timeline)
+        {
+            List<Exhibit> exhibitList = new List<Exhibit>();
+            foreach (Exhibit exhibit in timeline.exhibits)
+            {
+                exhibitList.Add(exhibit);
+            }
+
+            foreach(Timeline subTimeline in timeline.timelines)
+            {
+                foreach(Exhibit exhibit in subTimeline.exhibits)
+                {
+                    exhibitList.Add(exhibit);
+                }
+            }
+            return exhibitList;
         }
 
         private Timeline ReorderTimeline(Timeline timeline)
