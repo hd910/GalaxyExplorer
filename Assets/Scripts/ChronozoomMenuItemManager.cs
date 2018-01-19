@@ -19,6 +19,7 @@ public class ChronozoomMenuItemManager : GazeSelectionTarget
 
     public override bool OnTapped()
     {
+        TransitionManager.Instance.LoadNextScene("ChronozoomView", gameObject);
         return true;
     }
 }

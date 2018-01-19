@@ -613,28 +613,33 @@ namespace GalaxyExplorer
             GameObject prevSun = null;
             GameObject nextSun = null;
             GameObject nextPlanet = null;
-            TargetSizer sourceSizer = loadSource.GetComponent<TargetSizer>();
-            if (prevSceneLoaded != null && sourceSizer.TargetFillCollider != null)
+            TargetSizer sourceSizer = null;
+            if (loadSource != null)
             {
-                SunLightReceiver tempReceiver = prevSceneLoaded.GetComponentInChildren<SunLightReceiver>();
-                if (tempReceiver != null)
+                sourceSizer = loadSource.GetComponent<TargetSizer>();
+            
+                if (prevSceneLoaded != null && sourceSizer.TargetFillCollider != null)
                 {
-                    tempReceiver.FindSunIfNeeded();
-                    prevSun = tempReceiver.Sun.gameObject;
-
-                    tempReceiver = sourceSizer.TargetFillCollider.gameObject.GetComponentInParent<SunLightReceiver>();
+                    SunLightReceiver tempReceiver = prevSceneLoaded.GetComponentInChildren<SunLightReceiver>();
                     if (tempReceiver != null)
                     {
                         tempReceiver.FindSunIfNeeded();
-                        nextSun = tempReceiver.Sun.gameObject;
-                        nextPlanet = tempReceiver.GetComponentInParent<PlanetTransform>().gameObject;
+                        prevSun = tempReceiver.Sun.gameObject;
+
+                        tempReceiver = sourceSizer.TargetFillCollider.gameObject.GetComponentInParent<SunLightReceiver>();
+                        if (tempReceiver != null)
+                        {
+                            tempReceiver.FindSunIfNeeded();
+                            nextSun = tempReceiver.Sun.gameObject;
+                            nextPlanet = tempReceiver.GetComponentInParent<PlanetTransform>().gameObject;
+                        }
                     }
-                }
-                else
-                {
-                    // the previous planet is the sun
-                    prevSun = prevSceneLoaded.GetComponentInChildren<PlanetTransform>().gameObject;
-                    nextSun = nextPlanet = sourceSizer.TargetFillCollider.gameObject.transform.parent.gameObject;
+                    else
+                    {
+                        // the previous planet is the sun
+                        prevSun = prevSceneLoaded.GetComponentInChildren<PlanetTransform>().gameObject;
+                        nextSun = nextPlanet = sourceSizer.TargetFillCollider.gameObject.transform.parent.gameObject;
+                    }
                 }
             }
 
@@ -655,7 +660,7 @@ namespace GalaxyExplorer
             // rotation of the planet matching the planet in the solar system
             Quaternion nextPlanetRotation = Quaternion.identity;
             Quaternion nextPlanetFlareLocalRotation = Quaternion.identity;
-            if (prevSun != null && nextSun != null && nextPlanet != null)
+            if (prevSun != null && nextSun != null && nextPlanet != null && sourceSizer !=null)
             {
                 PlanetTransform prevPlanet = prevSceneLoaded.GetComponentInChildren<PlanetTransform>();
                 if (prevSun != prevPlanet.gameObject)
@@ -729,10 +734,11 @@ namespace GalaxyExplorer
             }
             else
             {
-                float scale = sceneSizer.GetScalar(desiredScale) * prevSizer.GetScalar() / (sourceSizer.GetScalar() * sceneSizer.FullScreenFillPercentage);
+                float scale = sceneSizer.GetScalar(desiredScale) * prevSizer.GetScalar() / (((sourceSizer!= null)?sourceSizer.GetScalar():1) * sceneSizer.FullScreenFillPercentage);
                 content.transform.localScale = new Vector3(scale, scale, scale);
                 content.transform.rotation = desiredRotation;
-                content.transform.position = desiredPosition - sourceSizer.GetPosition(scale);
+                content.transform.position = desiredPosition - ((sourceSizer != null) ? sourceSizer.GetPosition(scale) : Vector3.zero);
+                
 
                 // parent the old and new scenes
                 prevSceneLoaded.transform.SetParent(content.transform, true);
