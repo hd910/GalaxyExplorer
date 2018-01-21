@@ -214,16 +214,6 @@ Prefab:
       propertyPath: m_Name
       value: ChronozoomMenuCentre
       objectReference: {fileID: 0}
-    - target: {fileID: 114114476673367764, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: Content
-      value: 
-      objectReference: {fileID: 1378412599}
-    - target: {fileID: 114114476673367764, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: ChronozoomContent
-      value: 
-      objectReference: {fileID: 1822837472}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ba6f409b06fa6f46902359e633da102, type: 2}
   m_IsPrefabParent: 0
@@ -393,16 +383,6 @@ Prefab:
       propertyPath: m_Name
       value: ChronozoomMenuLeft
       objectReference: {fileID: 0}
-    - target: {fileID: 114114476673367764, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: Content
-      value: 
-      objectReference: {fileID: 1378412599}
-    - target: {fileID: 114114476673367764, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: ChronozoomContent
-      value: 
-      objectReference: {fileID: 1822837472}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ba6f409b06fa6f46902359e633da102, type: 2}
   m_IsPrefabParent: 0
@@ -952,36 +932,6 @@ Prefab:
       propertyPath: m_Name
       value: ChronozoomMenuRight
       objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.000114050956
-      objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.00011405085
-      objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.00011405092
-      objectReference: {fileID: 0}
-    - target: {fileID: 224573200930404638, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 33.189003
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114476673367764, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: Content
-      value: 
-      objectReference: {fileID: 1378412599}
-    - target: {fileID: 114114476673367764, guid: 8ba6f409b06fa6f46902359e633da102,
-        type: 2}
-      propertyPath: ChronozoomContent
-      value: 
-      objectReference: {fileID: 1822837472}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ba6f409b06fa6f46902359e633da102, type: 2}
   m_IsPrefabParent: 0
