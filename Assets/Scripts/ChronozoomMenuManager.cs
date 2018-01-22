@@ -51,12 +51,60 @@ public class ChronozoomMenuManager : MonoBehaviour {
 
     public void Next()
     {
+        //Check to see if there is a next page
+        if(playableCollectionList.Count > numberOfPanels * pageNumber)
+        {
 
+            if(pageNumber == 1)
+            {
+                //Going from first page to second page, un grey out left arrow
+                GameObject leftArrowGameObject = transform.Find("ChronozoomMenuControl/LeftArrow").gameObject;
+                leftArrowGameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+
+                leftArrowGameObject.GetComponent<ChronozoomMenuControl>().isActive = true;
+            }
+
+            pageNumber++;
+            UpdatePanel();
+
+            if(playableCollectionList.Count < numberOfPanels * (pageNumber+1))
+            {
+                //Last page, grey out right arrow
+                GameObject rightArrowGameObject = transform.Find("ChronozoomMenuControl/RightArrow").gameObject;
+                rightArrowGameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 50);
+
+                rightArrowGameObject.GetComponent<ChronozoomMenuControl>().isActive = false;
+            }
+
+            
+        }
     }
 
     public void Previous()
     {
+        if(pageNumber > 1)
+        {
+            if(playableCollectionList.Count < numberOfPanels * (pageNumber + 1))
+            {
+                //Last page, ungrey out right arrow
+                GameObject rightArrowGameObject = transform.Find("ChronozoomMenuControl/RightArrow").gameObject;
+                rightArrowGameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
 
+                rightArrowGameObject.GetComponent<ChronozoomMenuControl>().isActive = true;
+            }
+
+            pageNumber--;
+            UpdatePanel();
+
+            if(pageNumber == 1)
+            {
+                //First page, grey out left arrow
+                GameObject leftArrowGameObject = transform.Find("ChronozoomMenuControl/LeftArrow").gameObject;
+                leftArrowGameObject.GetComponent<Image>().color = new Color32(255, 255, 255, 50);
+
+                leftArrowGameObject.GetComponent<ChronozoomMenuControl>().isActive = false;
+            }
+        }
     }
 
     IEnumerator LoadImageOntoMagicWindow(GameObject magicWindow, string imageURL)
