@@ -908,6 +908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb82a0dd24e06445a387e442d4438be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultMagicWindowTex: {fileID: 2800000, guid: 1cb81b8544d38ce41b379762e494efb5,
+    type: 3}
 --- !u!1 &1378412599
 GameObject:
   m_ObjectHideFlags: 0

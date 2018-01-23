@@ -115,13 +115,13 @@ namespace GalaxyExplorer
                 exhibitList.Add(exhibit);
             }
 
-            foreach(Timeline subTimeline in timeline.timelines)
-            {
-                foreach(Exhibit exhibit in subTimeline.exhibits)
-                {
-                    exhibitList.Add(exhibit);
-                }
-            }
+            //foreach(Timeline subTimeline in timeline.timelines)
+            //{
+            //    foreach(Exhibit exhibit in subTimeline.exhibits)
+            //    {
+            //        exhibitList.Add(exhibit);
+            //    }
+            //}
             return exhibitList;
         }
 

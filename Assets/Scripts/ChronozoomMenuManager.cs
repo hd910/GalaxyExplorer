@@ -9,6 +9,8 @@ public class ChronozoomMenuManager : MonoBehaviour {
     private const int numberOfPanels = 3;
     private List<PlayableCollection> playableCollectionList;
 
+    public Texture defaultMagicWindowTex;
+
     public void Initiate(List<PlayableCollection> collectionList)
     {
         playableCollectionList = collectionList;
@@ -111,6 +113,7 @@ public class ChronozoomMenuManager : MonoBehaviour {
     {
         if (imageURL == null || imageURL.Equals(""))
         {
+            magicWindow.GetComponent<MeshRenderer>().materials[0].mainTexture = defaultMagicWindowTex;
             yield break;
         }
         Texture2D tex;
