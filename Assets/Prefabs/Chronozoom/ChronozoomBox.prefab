@@ -1421,7 +1421,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 48
@@ -1432,9 +1432,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is an artist's conception of the Milky Way galaxy, otherwise known
+  m_Text: 'This is an artist''s conception of the Milky Way galaxy, otherwise known
     as home to our Solar System. having a disk-shaped structure that is being viewed
     edge-on.
+
+    This is an artThis is an artist''s conception of the Milky Way galaxy, otherwise
+    known as home to our Solar System. having a disk-shaped structure that is being
+    viewed edge-on.'
 --- !u!114 &114090333537614626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1456,7 +1460,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 48

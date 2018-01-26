@@ -19,7 +19,7 @@ public class ChronozoomDetailsManager : MonoBehaviour {
 
         UpdatePageDisplay();
 
-        if(contentItems.Count < numberOfPanels)
+        if(contentItems.Count <= numberOfPanels)
         {
             //Gray out right button
             GameObject rightArrowGameObject = transform.Find("DetailData/Canvas/RightImage").gameObject;
@@ -35,7 +35,7 @@ public class ChronozoomDetailsManager : MonoBehaviour {
         {
             int index = pageNumber * numberOfPanels;
             DetailsPanel left = (index <= contentItems.Count) ? new DetailsPanel(contentItems[index].title, contentItems[index].description, contentItems[index].uri) : new DetailsPanel("", "", "");
-            DetailsPanel right = (index + 1 <= contentItems.Count) ? new DetailsPanel(contentItems[index+1].title, contentItems[index+1].description, contentItems[index+1].uri) : new DetailsPanel("", "", "");
+            DetailsPanel right = (index + 1 < contentItems.Count) ? new DetailsPanel(contentItems[index+1].title, contentItems[index+1].description, contentItems[index+1].uri) : new DetailsPanel("", "", "");
             DisplayPanelData(left, right);
             pageNumber++;
 
@@ -66,8 +66,6 @@ public class ChronozoomDetailsManager : MonoBehaviour {
             DetailsPanel left = (index <= contentItems.Count) ? new DetailsPanel(contentItems[index].title, contentItems[index].description, contentItems[index].uri) : new DetailsPanel("", "", "");
             DetailsPanel right = (index + 1 <= contentItems.Count) ? new DetailsPanel(contentItems[index + 1].title, contentItems[index + 1].description, contentItems[index + 1].uri) : new DetailsPanel("", "", "");
             DisplayPanelData(left, right);
-            Debug.Log("Loading : " + index + " and " + (index + 1));
-            Debug.Log(contentItems[2].title);
 
             //Un-gray out right arrow
             GameObject rightArrowGameObject = transform.Find("DetailData/Canvas/RightImage").gameObject;
@@ -100,7 +98,7 @@ public class ChronozoomDetailsManager : MonoBehaviour {
         GameObject leftDetailHeadingText = this.transform.Find("DetailData/InfoBackPanelLeft/Canvas/leftDetailHeading").gameObject;
         leftDetailHeadingText.GetComponent<Text>().text = left.HeadingText;
 
-        //Finds the left detail panel and change content with chronozoom data
+        //Finds the left detail panel and change content with chronozoom data. 
         GameObject leftDetailText = this.transform.Find("DetailData/InfoBackPanelLeft/Canvas/leftDetailDescription").gameObject;
         leftDetailText.GetComponent<Text>().text = left.ContentText;
 
@@ -108,7 +106,7 @@ public class ChronozoomDetailsManager : MonoBehaviour {
         GameObject rightDetailHeadingText = this.transform.Find("DetailData/InfoBackPanelRight/Canvas/rightDetailHeading").gameObject;
         rightDetailHeadingText.GetComponent<Text>().text = right.HeadingText;
 
-        //Finds the right detail panel and change content with chronozoom data
+        //Finds the right detail panel and change content with chronozoom data.
         GameObject rightDetailText = this.transform.Find("DetailData/InfoBackPanelRight/Canvas/rightDetailDescription").gameObject;
         rightDetailText.GetComponent<Text>().text = right.ContentText;
 

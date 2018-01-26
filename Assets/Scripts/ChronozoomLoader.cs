@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -16,6 +17,11 @@ namespace GalaxyExplorer
         private int numberOfRows = 3;
         private const string ChronozoomURI = "http://www.chronozoom.com/api/gettimelines?supercollection=";
         private string SuperCollection = ChronozoomCollectionChoice.UserChosenSuperCollection;
+        private List<Exhibit> exhibitList;
+        private bool onlyPictures = true;
+
+        //Change this to limit the number of exhibits that are instantiated. Set limit to around 100 to prevent text overload
+        private int maxExhibits = 100;
 
         void Awake()
         {
@@ -49,7 +55,6 @@ namespace GalaxyExplorer
             
             Timeline timeline = new Timeline();
             timeline = JsonConvert.DeserializeObject<Timeline>(data);
-            timeline = ReorderTimeline(timeline);
             DisplayData(timeline);
         }
 
@@ -58,16 +63,24 @@ namespace GalaxyExplorer
             int numberOfColumns = 0;
             float xOffSet = 0.0533f;
             float xPosition = 0f;
+            int exhibitCount = 0;
 
             var panelBoxGroup = new GameObject();
             panelBoxGroup.transform.parent = GameObject.Find("ChronozoomContent").transform;
             panelBoxGroup.transform.localPosition = Vector3.zero;
             panelBoxGroup.transform.rotation = Quaternion.identity;
 
-            List<Exhibit> exhibitList = getExhibitList(timeline);
+            GetExhibitList(timeline);
+            SortExhibit();
 
             foreach (Exhibit exhibit in exhibitList)
             {
+                //Limit number of exhibits by the value speficied in maxExhibit
+                if(exhibitCount >= maxExhibits)
+                {
+                    break;
+                }
+                exhibitCount++;
 
                 //Instantiate the panel box for displaying information
                 GameObject panelBoxGameObject = Instantiate(panelBox);
@@ -107,35 +120,95 @@ namespace GalaxyExplorer
 
         }
 
-        private List<Exhibit> getExhibitList(Timeline timeline)
+        private void GetExhibitList(Timeline timeline)
         {
-            List<Exhibit> exhibitList = new List<Exhibit>();
+            exhibitList = new List<Exhibit>();
+
+            //Recursively go through all the subtimelines
+            GetSubTimelinesInTimeline(timeline);
+
+            return;
+        }
+
+        private void GetSubTimelinesInTimeline(Timeline timeline)
+        {
+            //if there are sub timelines in the given timeline drill down and call getExhibits at each level
+            if (timeline.timelines != null)
+            {
+                foreach (Timeline subTimeline in timeline.timelines)
+                {
+                    //recursive function call to drill down
+                    GetSubTimelinesInTimeline(subTimeline);
+                    GetExhibitsInTimeline(subTimeline);
+                }
+            }
+            else //if not just get Exhibits
+            {
+                GetExhibitsInTimeline(timeline);
+            }
+        }
+
+        //Function to drill down into exhibits to get content items
+        private void GetExhibitsInTimeline(Timeline timeline)
+        {
             foreach (Exhibit exhibit in timeline.exhibits)
             {
-                exhibitList.Add(exhibit);
+                //In the chronozoom suppercollection there are duplicate exhibits so this just checks for any duplicates before adding - won't not be needed for custom data sets
+                bool alreadyExists = exhibitList.Any(item => item.id == exhibit.id);
+                if (!alreadyExists)
+                {
+                    List<ContentItem> contentItemList = new List<ContentItem>();
+                    foreach (ContentItem contentItem in exhibit.contentItems)
+                    {
+                        //Types in Chronozoom include: picture, image, photosynth and video however there is no naming conventions in place when it comes to defining the media source
+                        //Based on the setting 'onlyPictures' it either returns all content items or filters to only images
+                        bool isValid = ValidateMediaSource(contentItem.uri);
+                        bool descriptionValid = !contentItem.description.Equals("") && contentItem.description != null;
+                        if (onlyPictures && (contentItem.mediaType.ToUpper() == "PICTURE" || contentItem.mediaType.ToUpper() == "IMAGE") && isValid)
+                        {
+                            contentItemList.Add(contentItem);
+                        }
+                        else if (!onlyPictures)
+                        {
+                            contentItemList.Add(contentItem);
+                        }
+                    }
+                    exhibit.contentItems = contentItemList;
+                    exhibitList.Add(exhibit);
+                }
             }
-
-            //foreach(Timeline subTimeline in timeline.timelines)
-            //{
-            //    foreach(Exhibit exhibit in subTimeline.exhibits)
-            //    {
-            //        exhibitList.Add(exhibit);
-            //    }
-            //}
-            return exhibitList;
         }
 
-        private Timeline ReorderTimeline(Timeline timeline)
+        private void SortExhibit()
         {
-            Exhibit[] exhibits = timeline.exhibits;
-            Array.Sort<Exhibit>(exhibits, CompareStrings);
-            timeline.exhibits = exhibits;
-            return timeline;
+            exhibitList.Sort((a, b) => a.time.CompareTo(b.time));
         }
 
-        private static int CompareStrings(Exhibit a, Exhibit b)
+        private static bool ValidateMediaSource(string str)
         {
-            return a.time.CompareTo(b.time);
+            if (String.IsNullOrEmpty(str))
+            {
+                return false;
+            }
+            else
+            {
+                if (4 >= str.Length)
+                {
+                    return false;
+                }
+                else if (str.Substring(str.Length - 4).ToUpper() == ".GIF")
+                {
+                    return false;
+                }
+                else if (str.ToUpper().IndexOf("PHOTOSYNTH") > -1)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
 
     }
