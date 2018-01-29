@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This script is attached to DetailData/Canvas/LeftImage or /RightImage in the ChronozoomBox prefab. It is responsible for detecting hovers and clicks for the details panel arrows.
 public class ChronozoomDetailControl : GazeSelectionTarget
 {
     public GameObject leftButton;
@@ -12,11 +13,9 @@ public class ChronozoomDetailControl : GazeSelectionTarget
     public bool isActive;
 
     private ChronozoomDetailsManager detailsManager;
-    private Color32 originalColor;
 
 	void Start () {
         detailsManager = transform.parent.parent.parent.GetComponent<ChronozoomDetailsManager>();
-        originalColor = GetComponent<Image>().color;
     }
 
     public override void OnGazeSelect()

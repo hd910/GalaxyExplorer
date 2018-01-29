@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+//This script is attached to ChronozoomMenuGroup in ChronozoomMenuView scene. It is responsible for loading the data from chronoplay API in order to retrieve list of collections.
 public class ChronozoomMenuLoader : MonoBehaviour {
 
     private List<PlayableCollection> playableCollectionList;
@@ -12,7 +13,6 @@ public class ChronozoomMenuLoader : MonoBehaviour {
     private ChronozoomMenuManager chronozoomMenuManager;
     
 
-    // Use this for initialization
     void Start () {
         //Change rotation to face camera
         transform.rotation = Camera.main.transform.rotation;

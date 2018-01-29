@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This script is attached to the ChronozoomBox prefab. It is responsible for displaying data based on appropriate action.
 public class ChronozoomDetailsManager : MonoBehaviour {
 
     public List<ContentItem> contentItems { get; set; }
@@ -13,6 +14,7 @@ public class ChronozoomDetailsManager : MonoBehaviour {
 
     public void Initiate()
     {
+        //Display left and right panel for first time load
         DetailsPanel left = (contentItems.Count > 0) ? new DetailsPanel(contentItems[0].title, contentItems[0].description, contentItems[0].uri): new DetailsPanel("", "", "");
         DetailsPanel right = (contentItems.Count > 1) ? new DetailsPanel(contentItems[1].title, contentItems[1].description, contentItems[1].uri) : new DetailsPanel("", "", "");
         DisplayPanelData(left, right);
@@ -29,6 +31,7 @@ public class ChronozoomDetailsManager : MonoBehaviour {
         }
     }
 
+    //Display next page
     public void Next()
     {
         if (pageNumber * numberOfPanels < contentItems.Count)
@@ -57,6 +60,7 @@ public class ChronozoomDetailsManager : MonoBehaviour {
         }
     }
 
+    //Display previous page
     public void Previous()
     {
         if (pageNumber > 1)
@@ -135,6 +139,7 @@ public class ChronozoomDetailsManager : MonoBehaviour {
     }
 }
 
+//Class that holds the heading, content and url
 public class DetailsPanel
 {
     public string HeadingText { get; set; }

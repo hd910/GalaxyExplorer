@@ -9,12 +9,12 @@ using UnityEngine.UI;
 
 namespace GalaxyExplorer
 {
+    //This script is attached to Content in ChronozoomView scene. It is responsible for loading the chronozoom data from chronozoom.com
     public class ChronozoomLoader : MonoBehaviour
     {
         public GameObject panelBox;
         public GameObject detailsCanvas;
 
-        private int numberOfRows = 3;
         private const string ChronozoomURI = "http://www.chronozoom.com/api/gettimelines?supercollection=";
         private string SuperCollection = ChronozoomCollectionChoice.UserChosenSuperCollection;
         private List<Exhibit> exhibitList;
@@ -25,6 +25,7 @@ namespace GalaxyExplorer
 
         void Awake()
         {
+            //Called on scene load
             if (SuperCollection == null || SuperCollection.Equals(""))
             {
                 SuperCollection = "cosmos";
@@ -52,7 +53,7 @@ namespace GalaxyExplorer
 
         void DeserializeData(string data)
         {
-            
+            //Convert json into Timeline objects
             Timeline timeline = new Timeline();
             timeline = JsonConvert.DeserializeObject<Timeline>(data);
             DisplayData(timeline);
@@ -60,7 +61,6 @@ namespace GalaxyExplorer
 
         void DisplayData(Timeline timeline)
         {
-            int numberOfColumns = 0;
             float xOffSet = 0.0533f;
             float xPosition = 0f;
             int exhibitCount = 0;
@@ -70,7 +70,10 @@ namespace GalaxyExplorer
             panelBoxGroup.transform.localPosition = Vector3.zero;
             panelBoxGroup.transform.rotation = Quaternion.identity;
 
+            //Retrieve all exhibits from subtimelines
             GetExhibitList(timeline);
+
+            //Sort the exhibits in order of year
             SortExhibit();
 
             foreach (Exhibit exhibit in exhibitList)
@@ -114,7 +117,6 @@ namespace GalaxyExplorer
 
             //Makes sure the position, rotation and scale stays constant on each load
             var positionCube = GameObject.Find("ChronozoomPositionCube").transform;
-            var centrePosition = new Vector3(positionCube.position.x - (numberOfColumns/2 * 0.0533f), positionCube.position.y, positionCube.position.z);
             panelBoxGroup.transform.SetPositionAndRotation(positionCube.position, positionCube.rotation);
             panelBoxGroup.transform.localScale = new Vector3(1, 1, 1);
 
@@ -164,7 +166,7 @@ namespace GalaxyExplorer
                         //Based on the setting 'onlyPictures' it either returns all content items or filters to only images
                         bool isValid = ValidateMediaSource(contentItem.uri);
                         bool descriptionValid = !contentItem.description.Equals("") && contentItem.description != null;
-                        if (onlyPictures && (contentItem.mediaType.ToUpper() == "PICTURE" || contentItem.mediaType.ToUpper() == "IMAGE") && isValid)
+                        if (onlyPictures && (contentItem.mediaType.ToUpper() == "PICTURE" || contentItem.mediaType.ToUpper() == "IMAGE") && isValid && descriptionValid)
                         {
                             contentItemList.Add(contentItem);
                         }
@@ -181,9 +183,11 @@ namespace GalaxyExplorer
 
         private void SortExhibit()
         {
+            //Sort based on ascending order of time
             exhibitList.Sort((a, b) => a.time.CompareTo(b.time));
         }
 
+        //Checks to see if the media source is valid. Same code from chronoplay
         private static bool ValidateMediaSource(string str)
         {
             if (String.IsNullOrEmpty(str))

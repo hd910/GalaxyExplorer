@@ -3,6 +3,7 @@ using HoloToolkit.Unity.InputModule;
 using System.Collections;
 using UnityEngine;
 
+//This script is attached to the ChronozoomBox prefab that becomes instantiated programmatically. It handles the hovers and clicks for the box.
 public class ChronozoomBoxManager : GazeSelectionTarget
 {
     public static ChronozoomBoxManager ActiveBox;

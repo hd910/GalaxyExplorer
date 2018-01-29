@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.WSA;
 
+//This script is attached to the ChronozoomBox prefab that becomes instantiated programmatically. It is responsible for moving the box infront of the player when the animation is played.
 public class ChronozoomPresentToPlayer : MonoBehaviour {
 
+    //Variable to check if the box has finished moving to the right position
     public bool InPosition
     {
         get
@@ -13,6 +15,7 @@ public class ChronozoomPresentToPlayer : MonoBehaviour {
         }
     }
 
+    //Variable to check if the current box is active
     public bool Presenting
     {
         get
@@ -33,11 +36,6 @@ public class ChronozoomPresentToPlayer : MonoBehaviour {
     bool presenting = false;
     bool returning = false;
     bool inPosition = false;
-
-    public void Awake()
-    {
-
-    }
 
     public void Present()
     {

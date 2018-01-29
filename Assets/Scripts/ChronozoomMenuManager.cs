@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This script is attached to the ChronozoomMenuGroup in ChronozoomMenuView scene. It is responsible for displaying the menu panel data.
 public class ChronozoomMenuManager : MonoBehaviour {
 
     private int pageNumber = 1;
@@ -11,6 +12,7 @@ public class ChronozoomMenuManager : MonoBehaviour {
 
     public Texture defaultMagicWindowTex;
 
+    //Called on load from ChronozoomBoxManager once the data is loaded
     public void Initiate(List<PlayableCollection> collectionList)
     {
         playableCollectionList = collectionList;
@@ -111,11 +113,14 @@ public class ChronozoomMenuManager : MonoBehaviour {
 
     IEnumerator LoadImageOntoMagicWindow(GameObject magicWindow, string imageURL)
     {
+        //If no URL is specified, load the default texture onto the magic window
         if (imageURL == null || imageURL.Equals(""))
         {
             magicWindow.GetComponent<MeshRenderer>().materials[0].mainTexture = defaultMagicWindowTex;
             yield break;
         }
+
+        //Download the texture and display it onto the window
         Texture2D tex;
         tex = new Texture2D(4, 4, TextureFormat.DXT1, false);
         WWW www = new WWW(imageURL);

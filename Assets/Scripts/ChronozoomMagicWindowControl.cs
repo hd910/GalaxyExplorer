@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script is attached to the ChronozoomMagicWindow under the ChronozoomBox prefab. It is responsible for detecting clicks
 public class ChronozoomMagicWindowControl : GazeSelectionTarget
 {
 

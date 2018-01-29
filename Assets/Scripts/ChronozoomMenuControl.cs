@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This script is attached to either ChronozoomMenuControl/LeftArrow or /RightArrow in ChronozoomMenuView scene. It is responsible for detecting hover and clicks over the arrow buttons.
 public class ChronozoomMenuControl : GazeSelectionTarget
 {
     public GameObject leftButton;
@@ -12,11 +13,10 @@ public class ChronozoomMenuControl : GazeSelectionTarget
     public bool isActive;
 
     private ChronozoomMenuManager menuManager;
-    private Color32 originalColor;
 
 	void Start () {
+        //Get instance of ChronozoomMenuManager in order to call Previous/Next functions
         menuManager = transform.parent.parent.GetComponent<ChronozoomMenuManager>();
-        originalColor = GetComponent<Image>().color;
 
         //Changes the colour back to original
         if (isActive)
@@ -51,6 +51,7 @@ public class ChronozoomMenuControl : GazeSelectionTarget
 
     public override bool OnTapped()
     {
+        //Call the function for the appropriate action
         if (direction.Equals("right") && isActive)
         {
             menuManager.Next();
